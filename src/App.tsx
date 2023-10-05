@@ -1,7 +1,17 @@
 import "./App.css";
+import Banner from "./Components/banner/Banner";
+import MainPage from "./Components/mainPage/MainPage";
+import Footer from "./Components/footer/Footer";
+// import { Route, Routes } from "react-router-dom";
 
 function App() {
-  return <div className="bg-red-500 w-[100px] h-[100px]">hello world</div>;
+  return (
+    <div className="w-screen h-full text-center flex-col font-serif">
+      <Banner />
+      <MainPage />
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
