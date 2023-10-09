@@ -6,7 +6,9 @@ const Navbar = () => {
     <div className="w-[300px] h-[90vh] bg-slate-600 justify-start items-start">
       {buttons.map((item) => (
         <div key={item.id}>
-          <span>{item.name}</span>
+          <span>
+            <button>{item.name}</button>
+          </span>
         </div>
       ))}
     </div>

@@ -28,19 +28,17 @@ const randomDay: ExerciseDay = {
 const DisplayExercise = () => {
   return (
     <div className="flex-col border-4 border-amber-400 w-full">
-      <div>
-        <div>{randomDay.date}</div>
-        <div>
-          {randomDay.exercises.map((item) => (
-            <div key={randomDay.id}>
-              <div>{item.name}</div>
-              <div>
-                {item.series} x {item.repetitions}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <ul>
+        <li>{randomDay.date}</li>
+        {randomDay.exercises.map((item) => (
+          <div key={randomDay.id}>
+            <li>{item.name}</li>
+            <li>
+              {item.series} x {item.repetitions}
+            </li>
+          </div>
+        ))}
+      </ul>
     </div>
   );
 };
