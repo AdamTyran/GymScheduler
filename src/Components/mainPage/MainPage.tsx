@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
-import ExerciseDisplay from "../exerciseDisplay/ExerciseDisplay";
+import DisplayExerciseDay from "../exerciseDisplay/DisplayExercise";
 
 const MainPage = () => {
   return (
     <div className="bg-sky-600 h-[90vh] flex ">
       <Navbar />
-      <ExerciseDisplay />
+      <DisplayExerciseDay />
     </div>
   );
 };

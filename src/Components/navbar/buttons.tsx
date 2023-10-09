@@ -10,7 +10,15 @@ const buttons: Button[] = [
   },
   {
     id: 2,
-    name: "test",
+    name: "Calendar",
+  },
+  {
+    id: 3,
+    name: "Add Exercise",
+  },
+  {
+    id: 4,
+    name: "About",
   },
 ];
 
