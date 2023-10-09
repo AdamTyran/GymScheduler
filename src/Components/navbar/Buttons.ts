@@ -1,4 +1,4 @@
-interface Button {
+export interface Button {
   id: number;
   name: string;
 }

@@ -1,10 +1,14 @@
 import React from "react";
-import buttons from "./buttons";
+import { Button } from "./Buttons";
 
-const Navbar = () => {
+interface Props {
+  buttons: Button[];
+}
+
+const Navbar = (props: Props) => {
   return (
     <div className="w-[300px] h-[90vh] bg-slate-600 justify-start items-start">
-      {buttons.map((item) => (
+      {props.buttons.map((item) => (
         <div key={item.id}>
           <span>
             <button>{item.name}</button>

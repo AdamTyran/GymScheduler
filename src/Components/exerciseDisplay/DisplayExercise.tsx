@@ -1,7 +1,8 @@
 import React from "react";
-import exercises from "./ExercisesList";
+import exercises from "./ExercisesData";
 
-interface Exercises {
+interface FullExercise {
+  id: number;
   name: string;
   series: number;
   repetitions: number;
@@ -10,18 +11,18 @@ interface Exercises {
 interface ExerciseDay {
   id: number;
   date: string;
-  exercises: Exercises[];
+  exercises: FullExercise[];
 }
 
 const randomDay: ExerciseDay = {
   id: 1,
   date: "08.10.2023",
   exercises: [
-    { name: exercises[1].name, series: 3, repetitions: 12 },
-    { name: exercises[2].name, series: 3, repetitions: 12 },
-    { name: exercises[3].name, series: 3, repetitions: 12 },
-    { name: exercises[4].name, series: 3, repetitions: 12 },
-    { name: exercises[5].name, series: 3, repetitions: 12 },
+    { id: 1, name: exercises[1].name, series: 3, repetitions: 12 },
+    { id: 2, name: exercises[2].name, series: 3, repetitions: 12 },
+    { id: 3, name: exercises[3].name, series: 3, repetitions: 12 },
+    { id: 4, name: exercises[4].name, series: 3, repetitions: 12 },
+    { id: 5, name: exercises[5].name, series: 3, repetitions: 12 },
   ],
 };
 
@@ -31,7 +32,7 @@ const DisplayExercise = () => {
       <ul>
         <li>{randomDay.date}</li>
         {randomDay.exercises.map((item) => (
-          <div key={randomDay.id}>
+          <div key={item.id}>
             <li>{item.name}</li>
             <li>
               {item.series} x {item.repetitions}

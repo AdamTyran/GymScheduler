@@ -28,6 +28,10 @@ const exercises: Exercise[] = [
     id: 6,
     name: "Bicep curls",
   },
+  {
+    id: 7,
+    name: "French press",
+  },
 ];
 
 export default exercises;
