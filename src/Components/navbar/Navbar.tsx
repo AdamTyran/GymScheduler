@@ -1,5 +1,6 @@
 import React from "react";
-import { Button } from "./Buttons";
+import { Button } from "./NavbarButtons";
+import { Link } from "react-router-dom";
 
 interface Props {
   buttons: Button[];
@@ -11,7 +12,7 @@ const Navbar = (props: Props) => {
       {props.buttons.map((item) => (
         <div key={item.id}>
           <span>
-            <button>{item.name}</button>
+            <Link to={item.path}>{item.name}</Link>
           </span>
         </div>
       ))}
