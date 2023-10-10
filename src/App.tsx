@@ -1,6 +1,6 @@
-import Banner from "./Components/banner/Banner";
-import MainPage from "./Components/mainPage/MainPage";
-import Footer from "./Components/footer/Footer";
+import Banner from "./components/banner/Banner";
+import MainPage from "./components/mainPage/MainPage";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
