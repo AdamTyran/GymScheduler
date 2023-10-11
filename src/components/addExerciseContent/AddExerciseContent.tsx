@@ -1,33 +1,40 @@
 import React from "react";
 import { AddExerciseDayButton } from "../../pages/addExerciseDay/AddExerciseDayButtons";
 import { ExerciseList } from "../../pages/mainPage/MainPage";
+import AddExerciseTextfield from "../addExerciseTextfield/AddExerciseTextfield";
 
 interface Props {
   buttons: AddExerciseDayButton[];
   exercises: ExerciseList[];
+  newItem: string;
+  setNewItem: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const AddExerciseContent = ({ buttons, exercises }: Props) => {
+const AddExerciseContent = ({
+  buttons,
+  exercises,
+  newItem,
+  setNewItem,
+}: Props) => {
   return (
     <div>
-      <label>Date</label>
-      <div>
+      <li>
+        <label>Date</label>
+      </li>
+      <li>
         <input type="text"></input>
-      </div>
-      <label>Add Exercise</label>
-      <div>
-        <input type="text"></input>
-      </div>
-      <div>
+      </li>
+      <AddExerciseTextfield newItem={newItem} setNewItem={setNewItem} />
+      <li>
         {exercises.map((item) => (
           <div key={item.id}>
             {item.name + " " + item.sets + " x " + item.reps}
           </div>
         ))}
-      </div>
-      <div>
+      </li>
+      <li>
         <button className="bg-white">Submit</button>
-      </div>
+      </li>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { AddExerciseDayButton } from "./AddExerciseDayButtons";
 import { ExerciseList } from "../mainPage/MainPage";
 import AddExerciseContent from "../../components/addExerciseContent/AddExerciseContent";
@@ -8,14 +8,20 @@ import AddExerciseContent from "../../components/addExerciseContent/AddExerciseC
 interface Props {
   buttons: AddExerciseDayButton[];
   exercises: ExerciseList[];
+  newItem: string;
+  setNewItem: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const AddExerciseDay = ({ buttons, exercises }: Props) => {
-  const inputRef = useRef();
+const AddExerciseDay = ({ buttons, exercises, newItem, setNewItem }: Props) => {
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <ul>
-        <AddExerciseContent buttons={buttons} exercises={exercises} />
+        <AddExerciseContent
+          buttons={buttons}
+          exercises={exercises}
+          newItem={newItem}
+          setNewItem={setNewItem}
+        />
       </ul>
     </form>
   );

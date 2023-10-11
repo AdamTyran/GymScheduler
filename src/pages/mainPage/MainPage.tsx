@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import DisplayExercise from "../../components/exerciseDisplay/DisplayExercise";
 import buttons from "../../components/navbar/NavbarButtons";
@@ -13,7 +13,7 @@ export interface ExerciseList {
   reps: number;
 }
 
-const exerciseList: ExerciseList[] = [
+export const exerciseList: ExerciseList[] = [
   {
     id: 1,
     name: "deadlift",
@@ -35,6 +35,8 @@ const exerciseList: ExerciseList[] = [
 ];
 
 const MainPage = () => {
+  const [newItem, setNewItem] = useState("");
+
   return (
     <div className="bg-sky-600 h-[90vh] flex ">
       <Navbar buttons={buttons} />
@@ -47,6 +49,8 @@ const MainPage = () => {
             <AddExerciseDay
               buttons={addExerciseDayButtons}
               exercises={exerciseList}
+              newItem={newItem}
+              setNewItem={setNewItem}
             />
           }
         />
