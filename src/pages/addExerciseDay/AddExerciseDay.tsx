@@ -7,20 +7,18 @@ import AddExerciseContent from "../../components/addExerciseContent/AddExerciseC
 
 interface Props {
   buttons: AddExerciseDayButton[];
-  exercises: ExerciseList[];
-  newItem: string;
-  setNewItem: React.Dispatch<React.SetStateAction<string>>;
+  exerciseList: ExerciseList[];
+  setExerciseList(list: ExerciseList[]): void;
 }
 
-const AddExerciseDay = ({ buttons, exercises, newItem, setNewItem }: Props) => {
+const AddExerciseDay = ({ buttons, exerciseList, setExerciseList }: Props) => {
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <ul>
         <AddExerciseContent
           buttons={buttons}
-          exercises={exercises}
-          newItem={newItem}
-          setNewItem={setNewItem}
+          exerciseList={exerciseList}
+          setExerciseList={setExerciseList}
         />
       </ul>
     </form>

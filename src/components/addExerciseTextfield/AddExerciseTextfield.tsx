@@ -1,28 +1,19 @@
-import React, { useRef } from "react";
+import React from "react";
 
 interface Props {
   newItem: string;
-  setNewItem: React.Dispatch<React.SetStateAction<string>>;
+  setNewItem(arg: string): void;
 }
 
 const AddExerciseTextfield = ({ newItem, setNewItem }: Props) => {
-  const inputRef = useRef();
-
   return (
     <div>
-      <li>
-        <label>Exercises</label>
-      </li>
-      <li>
-        <input
-          autoFocus
-          type="text"
-          value={newItem}
-          onChange={(e) => setNewItem(e.target.value)}
-        ></input>
-        <button className="bg-orange-500 gap-5">Add</button>
-      </li>
-      <li>{newItem}</li>
+      <input
+        autoFocus
+        type="text"
+        value={newItem}
+        onChange={(e) => setNewItem(e.target.value)}
+      ></input>
     </div>
   );
 };

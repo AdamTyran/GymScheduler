@@ -13,29 +13,27 @@ export interface ExerciseList {
   reps: number;
 }
 
-export const exerciseList: ExerciseList[] = [
-  {
-    id: 1,
-    name: "deadlift",
-    sets: 3,
-    reps: 12,
-  },
-  {
-    id: 2,
-    name: "deadlift",
-    sets: 3,
-    reps: 12,
-  },
-  {
-    id: 3,
-    name: "deadlift",
-    sets: 3,
-    reps: 12,
-  },
-];
-
 const MainPage = () => {
-  const [newItem, setNewItem] = useState("");
+  const [exerciseList, setExerciseList] = useState([
+    {
+      id: 1,
+      name: "deadlift",
+      sets: 3,
+      reps: 12,
+    },
+    {
+      id: 2,
+      name: "deadlift",
+      sets: 3,
+      reps: 12,
+    },
+    {
+      id: 3,
+      name: "deadlift",
+      sets: 3,
+      reps: 12,
+    },
+  ]);
 
   return (
     <div className="bg-sky-600 h-[90vh] flex ">
@@ -48,9 +46,8 @@ const MainPage = () => {
           element={
             <AddExerciseDay
               buttons={addExerciseDayButtons}
-              exercises={exerciseList}
-              newItem={newItem}
-              setNewItem={setNewItem}
+              exerciseList={exerciseList}
+              setExerciseList={setExerciseList}
             />
           }
         />
