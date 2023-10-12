@@ -8,9 +8,9 @@ interface Props {
 }
 
 const ExerciseListAddDisplay = ({ exerciseList, setExerciseList }: Props) => {
-  const inputRef = useRef();
   const [newItem, setNewItem] = useState("");
   const addItem = (itemName: string) => {
+    if (itemName === "") return;
     const id = exerciseList.length
       ? exerciseList[exerciseList.length - 1].id + 1
       : 1;
@@ -25,7 +25,11 @@ const ExerciseListAddDisplay = ({ exerciseList, setExerciseList }: Props) => {
         <label>Exercises</label>
       </li>
       <li>
-        <AddExerciseTextfield newItem={newItem} setNewItem={setNewItem} />
+        <AddExerciseTextfield
+          textboxName="Exercises"
+          newItem={newItem}
+          setNewItem={setNewItem}
+        />
         <button className="bg-orange-500" onClick={() => addItem(newItem)}>
           Add
         </button>

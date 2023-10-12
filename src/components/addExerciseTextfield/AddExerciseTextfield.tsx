@@ -1,13 +1,15 @@
 import React from "react";
 
 interface Props {
+  textboxName: string;
   newItem: string;
   setNewItem(arg: string): void;
 }
 
-const AddExerciseTextfield = ({ newItem, setNewItem }: Props) => {
+const AddExerciseTextfield = ({ textboxName, newItem, setNewItem }: Props) => {
   return (
     <div>
+      <label>{textboxName}</label>
       <input
         autoFocus
         type="text"
