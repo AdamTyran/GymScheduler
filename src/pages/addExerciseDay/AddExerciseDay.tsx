@@ -20,21 +20,16 @@ const AddExerciseDay = ({ buttons, exerciseList, setExerciseList }: Props) => {
           exerciseList={exerciseList}
           setExerciseList={setExerciseList}
         />
+        {exerciseList.map((item) => (
+          <div key={item.id}>
+            {item.name}
+            {item.sets}
+            {item.reps}
+          </div>
+        ))}
       </ul>
     </form>
   );
 };
 
 export default AddExerciseDay;
-
-// Add exercise
-// <form onSubmit={(e) => e.preventDefault()}>
-//   {buttons.map((item) => (
-//     <div key={item.id}>
-//       <label>{item.name}</label>
-//       <div>
-//         <input type="text" />
-//       </div>
-//     </div>
-//   ))}
-// </form>

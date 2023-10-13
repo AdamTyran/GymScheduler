@@ -1,20 +1,27 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { ExerciseList } from "../../pages/mainPage/MainPage";
 import AddExerciseTextfield from "../addExerciseTextfield/AddExerciseTextfield";
 
 interface Props {
   exerciseList: ExerciseList[];
   setExerciseList(list: ExerciseList[]): void;
+  sets: number;
+  reps: number;
 }
 
-const ExerciseListAddDisplay = ({ exerciseList, setExerciseList }: Props) => {
+const ExerciseListAddDisplay = ({
+  exerciseList,
+  setExerciseList,
+  sets,
+  reps,
+}: Props) => {
   const [newItem, setNewItem] = useState("");
   const addItem = (itemName: string) => {
     if (itemName === "") return;
     const id = exerciseList.length
       ? exerciseList[exerciseList.length - 1].id + 1
       : 1;
-    const newExercise = { id: id, name: itemName, sets: 3, reps: 12 };
+    const newExercise = { id: id, name: itemName, sets: sets, reps: reps };
     setExerciseList([...exerciseList, newExercise]);
     setNewItem("");
   };
@@ -39,4 +46,3 @@ const ExerciseListAddDisplay = ({ exerciseList, setExerciseList }: Props) => {
 };
 
 export default ExerciseListAddDisplay;
-//TODO add onClick

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { AddExerciseDayButton } from "../../pages/addExerciseDay/AddExerciseDayButtons";
 import { ExerciseList } from "../../pages/mainPage/MainPage";
-import AddExerciseTextfield from "../addExerciseTextfield/AddExerciseTextfield";
 import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
+import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
 
 interface Props {
   buttons: AddExerciseDayButton[];
@@ -15,6 +15,14 @@ const AddExerciseContent = ({
   exerciseList,
   setExerciseList,
 }: Props) => {
+  const [sets, useSets] = useState(0);
+  const [reps, useReps] = useState(0);
+  //TODO Add useEffect to change exerciseList when sets and reps change
+
+  const handleSubmit = () => {
+    console.log("added");
+  };
+
   return (
     <div>
       <li>
@@ -26,16 +34,23 @@ const AddExerciseContent = ({
       <ExerciseListAddDisplay
         exerciseList={exerciseList}
         setExerciseList={setExerciseList}
+        sets={sets}
+        reps={reps}
       />
+
       <li>
         {exerciseList.map((item) => (
           <div key={item.id}>
-            {item.name + " " + item.sets + " x " + item.reps}
+            {item.name}{" "}
+            <InputNumberTextfield name="sets" value={sets} onChange={useSets} />
+            <InputNumberTextfield name="reps" value={reps} onChange={useReps} />
           </div>
         ))}
       </li>
       <li>
-        <button className="bg-white">Submit</button>
+        <button className="bg-white" onClick={handleSubmit}>
+          Submit
+        </button>
       </li>
     </div>
   );

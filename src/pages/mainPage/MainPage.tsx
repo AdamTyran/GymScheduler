@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import DisplayExercise from "../../components/exerciseDisplay/DisplayExercise";
 import buttons from "../../components/navbar/NavbarButtons";
@@ -14,26 +14,29 @@ export interface ExerciseList {
 }
 
 const MainPage = () => {
-  const [exerciseList, setExerciseList] = useState([
-    {
-      id: 1,
-      name: "deadlift",
-      sets: 3,
-      reps: 12,
-    },
-    {
-      id: 2,
-      name: "deadlift",
-      sets: 3,
-      reps: 12,
-    },
-    {
-      id: 3,
-      name: "deadlift",
-      sets: 3,
-      reps: 12,
-    },
-  ]);
+  useEffect(() => {
+    setExerciseList([
+      {
+        id: 1,
+        name: "deadlift",
+        sets: 3,
+        reps: 12,
+      },
+      {
+        id: 2,
+        name: "deadlift",
+        sets: 3,
+        reps: 12,
+      },
+      {
+        id: 3,
+        name: "deadlift",
+        sets: 3,
+        reps: 12,
+      },
+    ]);
+  }, []);
+  const [exerciseList, setExerciseList] = useState<ExerciseList[]>([]);
 
   return (
     <div className="bg-sky-600 h-[90vh] flex ">
