@@ -3,6 +3,7 @@ import { AddExerciseDayButton } from "../../pages/addExerciseDay/AddExerciseDayB
 import { ExerciseList } from "../../pages/mainPage/MainPage";
 import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
 import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
+import Button from "../button/Button";
 
 interface Props {
   buttons: AddExerciseDayButton[];
@@ -41,16 +42,17 @@ const AddExerciseContent = ({
       <li>
         {exerciseList.map((item) => (
           <div key={item.id}>
-            {item.name}{" "}
+            {item.name}
             <InputNumberTextfield name="sets" value={sets} onChange={useSets} />
             <InputNumberTextfield name="reps" value={reps} onChange={useReps} />
           </div>
         ))}
       </li>
       <li>
-        <button className="bg-white" onClick={handleSubmit}>
+        {/* <button className="bg-white" onClick={handleSubmit}>
           Submit
-        </button>
+        </button> */}
+        <Button text="Submit" func={handleSubmit} />
       </li>
     </div>
   );
