@@ -39,7 +39,7 @@ const MainPage = () => {
   const [exerciseList, setExerciseList] = useState<ExerciseList[]>([]);
 
   return (
-    <div className="bg-sky-600 h-[90vh] flex ">
+    <div className="bg-sky-600 h-[90vh] w-auto flex ">
       <Navbar buttons={buttons} />
       <Routes>
         <Route path="/" element={<DisplayExercise />} />

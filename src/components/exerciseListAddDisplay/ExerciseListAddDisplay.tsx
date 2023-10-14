@@ -27,17 +27,18 @@ const ExerciseListAddDisplay = ({
   };
 
   return (
-    <div>
-      <li>
-        <label>Exercises</label>
-      </li>
+    <div className="relative block text-gray-400 focus-within:text-gray-600">
       <li>
         <AddExerciseTextfield
           textboxName="Exercises"
           newItem={newItem}
           setNewItem={setNewItem}
         />
-        <button className="bg-orange-500" onClick={() => addItem(newItem)}>
+        <button
+          // className="w-5 h-5 ml-3"
+          className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2"
+          onClick={() => addItem(newItem)}
+        >
           Add
         </button>
       </li>
