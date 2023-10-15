@@ -4,6 +4,8 @@ import { ExerciseList } from "../../pages/mainPage/MainPage";
 import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
 import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
 import Button from "../button/Button";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 interface Props {
   buttons: AddExerciseDayButton[];
@@ -25,12 +27,15 @@ const AddExerciseContent = ({
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <li>
         <label>Date</label>
       </li>
       <li>
         <input type="text"></input>
+      </li>
+      <li className="flex justify-center">
+        <Calendar />
       </li>
       <ExerciseListAddDisplay
         exerciseList={exerciseList}
@@ -39,19 +44,26 @@ const AddExerciseContent = ({
         reps={reps}
       />
 
-      <li>
+      <li className="flex flex-col gap-2">
         {exerciseList.map((item) => (
-          <div key={item.id}>
+          <React.Fragment key={item.id}>
             {item.name}
-            <InputNumberTextfield name="sets" value={sets} onChange={useSets} />
-            <InputNumberTextfield name="reps" value={reps} onChange={useReps} />
-          </div>
+            <div className="flex flex-row justify-center gap-4 mb-4">
+              <InputNumberTextfield
+                name="sets"
+                value={sets}
+                onChange={useSets}
+              />
+              <InputNumberTextfield
+                name="reps"
+                value={reps}
+                onChange={useReps}
+              />
+            </div>
+          </React.Fragment>
         ))}
       </li>
       <li>
-        {/* <button className="bg-white" onClick={handleSubmit}>
-          Submit
-        </button> */}
         <Button text="Submit" func={handleSubmit} />
       </li>
     </div>

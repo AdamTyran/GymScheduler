@@ -15,9 +15,9 @@ const AddExerciseDay = ({ buttons, exerciseList, setExerciseList }: Props) => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="w-full max-w-md flex flex-col px-2 container mx-auto"
+      className="w-full max-w-md px-2 mx-auto"
     >
-      <ul>
+      <ul className="flex flex-col gap-4">
         <AddExerciseContent
           buttons={buttons}
           exerciseList={exerciseList}

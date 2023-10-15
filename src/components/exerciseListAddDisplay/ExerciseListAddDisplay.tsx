@@ -28,20 +28,13 @@ const ExerciseListAddDisplay = ({
   };
 
   return (
-    <div className="relative block text-gray-400 focus-within:text-gray-600">
-      <li className="h-full">
+    <div className="relative block text-gray-400 ">
+      <li>
         <AddExerciseTextfield
-          promptName="Input Exercise!"
+          text="Input Exercise!"
           newItem={newItem}
           setNewItem={setNewItem}
         />
-        {/* <button
-          // className="w-5 h-5 ml-3"
-          className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2"
-          onClick={() => addItem(newItem)}
-        >
-          Add
-        </button> */}
         <div className="absolute right-2.5 bottom-2.5">
           <Button text="Add" func={addItem} args={newItem} />
         </div>

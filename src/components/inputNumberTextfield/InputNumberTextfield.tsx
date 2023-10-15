@@ -6,10 +6,11 @@ interface Props {
 
 const InputNumberTextfield = ({ name, value, onChange }: Props) => {
   return (
-    <div>
+    <div className="gap-4">
       <label>{name}</label>
       <input
-        type="text"
+        className="w-24 h-4 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+        type="number"
         value={value}
         onChange={(e) => onChange(parseInt(e.target.value))}
       />
