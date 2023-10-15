@@ -35,7 +35,7 @@ const AddExerciseContent = ({
         <input type="text"></input>
       </li>
       <li className="flex justify-center">
-        <Calendar />
+        <Calendar className="rounded-xl" />
       </li>
       <ExerciseListAddDisplay
         exerciseList={exerciseList}
