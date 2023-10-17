@@ -18,8 +18,9 @@ const AddExerciseContent = ({
   exerciseList,
   setExerciseList,
 }: Props) => {
-  const [sets, useSets] = useState(0);
-  const [reps, useReps] = useState(0);
+  const [sets, useSets] = useState<number>(0);
+  const [reps, useReps] = useState<number>(0);
+  const [date, setDate] = useState<string>("");
   //TODO Add useEffect to change exerciseList when sets and reps change
 
   const handleSubmit = () => {
@@ -32,11 +33,15 @@ const AddExerciseContent = ({
         <label>Date</label>
       </li>
       <li>
-        <input type="text"></input>
+        <input
+          className="text-black"
+          type="date"
+          onChange={(e) => setDate(e.target.value)}
+        />
       </li>
-      <li className="flex justify-center">
+      {/* <li className="flex justify-center">
         <Calendar className="rounded-xl text-black" />
-      </li>
+      </li> */}
       <ExerciseListAddDisplay
         exerciseList={exerciseList}
         setExerciseList={setExerciseList}
