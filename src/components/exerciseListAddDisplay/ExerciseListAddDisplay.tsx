@@ -6,23 +6,16 @@ import Button from "../button/Button";
 interface Props {
   exerciseList: ExerciseList[];
   setExerciseList(list: ExerciseList[]): void;
-  sets: number | undefined;
-  reps: number | undefined;
 }
 
-const ExerciseListAddDisplay = ({
-  exerciseList,
-  setExerciseList,
-  sets,
-  reps,
-}: Props) => {
+const ExerciseListAddDisplay = ({ exerciseList, setExerciseList }: Props) => {
   const [newItem, setNewItem] = useState("");
   const addItem = (itemName: string) => {
     if (itemName === "") return;
     const id = exerciseList.length
       ? exerciseList[exerciseList.length - 1].id + 1
       : 1;
-    const newExercise = { id: id, name: itemName, sets: sets, reps: reps };
+    const newExercise = { id: id, name: itemName, sets: 0, reps: 0 };
     setExerciseList([...exerciseList, newExercise]);
     setNewItem("");
   };
@@ -36,7 +29,7 @@ const ExerciseListAddDisplay = ({
           setNewItem={setNewItem}
         />
         <div className="absolute right-2.5 bottom-2.5">
-          <Button text="Add" func={addItem} args={newItem} />
+          <Button text="Add" onClick={() => addItem(newItem)} />
         </div>
       </li>
     </div>

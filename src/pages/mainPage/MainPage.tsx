@@ -48,7 +48,6 @@ const MainPage = () => {
           path="/addexercise"
           element={
             <AddExerciseDay
-              buttons={addExerciseDayButtons}
               exerciseList={exerciseList}
               setExerciseList={setExerciseList}
             />

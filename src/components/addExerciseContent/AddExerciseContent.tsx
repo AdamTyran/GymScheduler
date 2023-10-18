@@ -8,19 +8,23 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 interface Props {
-  buttons: AddExerciseDayButton[];
   exerciseList: ExerciseList[];
   setExerciseList(list: ExerciseList[]): void;
 }
 
-const AddExerciseContent = ({
-  buttons,
-  exerciseList,
-  setExerciseList,
-}: Props) => {
-  const [sets, useSets] = useState<number | undefined>(0);
-  const [reps, useReps] = useState<number | undefined>(0);
+const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
   const [date, setDate] = useState<string>("");
+  const onRepsChange = (value: number | undefined, index: number) => {
+    const newList = [...exerciseList];
+    newList[index].reps = value;
+    setExerciseList(newList);
+  };
+  const onSetsChange = (value: number | undefined, index: number) => {
+    const newList = [...exerciseList];
+    newList[index].sets = value;
+    setExerciseList(newList);
+  };
+
   //TODO Add useEffect to change exerciseList when sets and reps change
 
   const handleSubmit = () => {
@@ -45,31 +49,29 @@ const AddExerciseContent = ({
       <ExerciseListAddDisplay
         exerciseList={exerciseList}
         setExerciseList={setExerciseList}
-        sets={sets}
-        reps={reps}
       />
 
       <li className="flex flex-col gap-2">
-        {exerciseList.map((item) => (
+        {exerciseList.map((item, index) => (
           <React.Fragment key={item.id}>
             {item.name}
             <div className="flex flex-row justify-center gap-4 mb-4">
               <InputNumberTextfield
                 name="sets"
-                value={sets}
-                onChange={useSets}
+                value={item.sets}
+                onChange={(val: number | undefined) => onSetsChange(val, index)}
               />
               <InputNumberTextfield
                 name="reps"
-                value={reps}
-                onChange={useReps}
+                value={item.reps}
+                onChange={(val: number | undefined) => onRepsChange(val, index)}
               />
             </div>
           </React.Fragment>
         ))}
       </li>
       <li>
-        <Button text="Submit" func={handleSubmit} />
+        <Button text="Submit" onClick={handleSubmit} />
       </li>
     </div>
   );

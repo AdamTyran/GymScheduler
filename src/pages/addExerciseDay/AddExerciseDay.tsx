@@ -6,12 +6,11 @@ import AddExerciseContent from "../../components/addExerciseContent/AddExerciseC
 //adding until API doesn't exist
 
 interface Props {
-  buttons: AddExerciseDayButton[];
   exerciseList: ExerciseList[];
   setExerciseList(list: ExerciseList[]): void;
 }
 
-const AddExerciseDay = ({ buttons, exerciseList, setExerciseList }: Props) => {
+const AddExerciseDay = ({ exerciseList, setExerciseList }: Props) => {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
@@ -19,7 +18,6 @@ const AddExerciseDay = ({ buttons, exerciseList, setExerciseList }: Props) => {
     >
       <ul className="flex flex-col gap-4">
         <AddExerciseContent
-          buttons={buttons}
           exerciseList={exerciseList}
           setExerciseList={setExerciseList}
         />
