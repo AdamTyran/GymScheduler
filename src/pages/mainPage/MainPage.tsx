@@ -9,8 +9,8 @@ import { addExerciseDayButtons } from "../addExerciseDay/AddExerciseDayButtons";
 export interface ExerciseList {
   id: number;
   name: string;
-  sets: number;
-  reps: number;
+  sets: number | undefined;
+  reps: number | undefined;
 }
 
 const MainPage = () => {

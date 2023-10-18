@@ -6,8 +6,8 @@ import Button from "../button/Button";
 interface Props {
   exerciseList: ExerciseList[];
   setExerciseList(list: ExerciseList[]): void;
-  sets: number;
-  reps: number;
+  sets: number | undefined;
+  reps: number | undefined;
 }
 
 const ExerciseListAddDisplay = ({

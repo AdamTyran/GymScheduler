@@ -18,8 +18,8 @@ const AddExerciseContent = ({
   exerciseList,
   setExerciseList,
 }: Props) => {
-  const [sets, useSets] = useState<number>(0);
-  const [reps, useReps] = useState<number>(0);
+  const [sets, useSets] = useState<number | undefined>(0);
+  const [reps, useReps] = useState<number | undefined>(0);
   const [date, setDate] = useState<string>("");
   //TODO Add useEffect to change exerciseList when sets and reps change
 
