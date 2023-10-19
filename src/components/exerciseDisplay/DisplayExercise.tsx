@@ -28,7 +28,7 @@ const randomDay: ExerciseDay = {
 
 const DisplayExercise = () => {
   return (
-    <div className="flex-col border-4 border-amber-400 w-full">
+    <div className="flex-col">
       <ul>
         <li>{randomDay.date}</li>
         {randomDay.exercises.map((item) => (

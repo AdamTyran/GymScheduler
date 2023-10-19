@@ -4,10 +4,9 @@ import Footer from "./components/footer/Footer";
 
 function App() {
   return (
-    <div className="w-screen h-full text-center flex-col font-serif">
+    <div className="w-screen h-[95vh] text-center flex-col font-serif">
       <Banner />
       <MainPage />
-      <Footer />
     </div>
   );
 }

@@ -21,11 +21,11 @@ const AddExerciseDay = ({ exerciseList, setExerciseList }: Props) => {
           setExerciseList={setExerciseList}
         />
         {exerciseList.map((item) => (
-          <div key={item.id}>
-            {item.name}
+          <React.Fragment key={item.id}>
+            <p>{item.name}</p>
             {item.sets}
             {item.reps}
-          </div>
+          </React.Fragment>
         ))}
       </ul>
     </form>

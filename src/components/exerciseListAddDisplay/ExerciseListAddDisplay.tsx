@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ExerciseListAddDisplay = ({ exerciseList, setExerciseList }: Props) => {
-  const [newItem, setNewItem] = useState("");
+  const [newItem, setNewItem] = useState<string>("");
   const addItem = (itemName: string) => {
     if (itemName === "") return;
     const id = exerciseList.length
