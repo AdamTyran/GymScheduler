@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { AddExerciseDayButton } from "../../pages/addExerciseDay/AddExerciseDayButtons";
 import { ExerciseList } from "../../pages/mainPage/MainPage";
 import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
 import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
@@ -24,8 +23,6 @@ const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
     newList[index].sets = value;
     setExerciseList(newList);
   };
-
-  //TODO Add useEffect to change exerciseList when sets and reps change
 
   const handleSubmit = () => {
     console.log("added");

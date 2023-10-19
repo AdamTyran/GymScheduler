@@ -6,7 +6,7 @@ interface Props {
   buttons: Button[];
 }
 
-const Navbar = (props: Props) => {
+const Sidebar = (props: Props) => {
   return (
     <div className="flex flex-col z-40 w-64 bg-gray-800">
       {props.buttons.map((item) => (
@@ -26,4 +26,4 @@ const Navbar = (props: Props) => {
   );
 };
 
-export default Navbar;
+export default Sidebar;

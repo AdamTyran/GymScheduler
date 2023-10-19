@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../../components/navbar/Navbar";
+import Sidebar from "../../components/sidebar/Sidebar";
 import DisplayExercise from "../../components/exerciseDisplay/DisplayExercise";
-import buttons from "../../components/navbar/NavbarButtons";
+import buttons from "../../components/sidebar/NavbarButtons";
 import { Route, Routes } from "react-router-dom";
 import AddExerciseDay from "../addExerciseDay/AddExerciseDay";
-import { addExerciseDayButtons } from "../addExerciseDay/AddExerciseDayButtons";
 
 export interface ExerciseList {
   id: number;
@@ -40,7 +39,7 @@ const MainPage = () => {
 
   return (
     <div className="bg-gray-900 h-[90vh] flex text-white">
-      <Navbar buttons={buttons} />
+      <Sidebar buttons={buttons} />
       <Routes>
         <Route path="/" element={<DisplayExercise />} />
         <Route path="/exercises" element={<DisplayExercise />} />

@@ -1,5 +1,4 @@
 import React from "react";
-import { AddExerciseDayButton } from "./AddExerciseDayButtons";
 import { ExerciseList } from "../mainPage/MainPage";
 import AddExerciseContent from "../../components/addExerciseContent/AddExerciseContent";
 
