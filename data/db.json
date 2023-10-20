@@ -1,0 +1,22 @@
+{
+  "exercises": [
+    {
+      "id": 1,
+      "name": "deadlift",
+      "sets": 3,
+      "reps": 12
+    },
+    {
+      "id": 2,
+      "name": "deadlift",
+      "sets": 3,
+      "reps": 12
+    },
+    {
+      "id": 3,
+      "name": "deadlift",
+      "sets": 3,
+      "reps": 12
+    }
+  ]
+}

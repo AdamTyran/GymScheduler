@@ -5,6 +5,7 @@ import buttons from "../../components/sidebar/NavbarButtons";
 import { Route, Routes } from "react-router-dom";
 import AddExerciseDay from "../addExerciseDay/AddExerciseDay";
 import ExerciseCalendar from "../exerciseCalendar/ExerciseCalendar";
+import axios from "axios";
 
 export interface ExerciseList {
   id: number;
