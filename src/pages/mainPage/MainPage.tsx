@@ -40,7 +40,7 @@ const MainPage = () => {
   const [exerciseList, setExerciseList] = useState<ExerciseList[]>([]);
 
   return (
-    <div className="bg-gray-900 h-full flex text-white">
+    <div className="bg-gray-900 min-h-full flex text-white">
       <Sidebar buttons={buttons} />
       <Routes>
         <Route path="/" element={<DisplayExercise />} />

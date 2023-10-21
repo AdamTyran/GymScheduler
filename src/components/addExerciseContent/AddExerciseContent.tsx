@@ -3,7 +3,6 @@ import { ExerciseList } from "../../pages/mainPage/MainPage";
 import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
 import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
 import Button from "../button/Button";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
 interface Props {
