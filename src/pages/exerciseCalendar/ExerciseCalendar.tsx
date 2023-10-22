@@ -14,12 +14,10 @@ const ExerciseCalendar = () => {
 
   return (
     <div className="px-2 pt-10 mx-auto w-screen flex justify-center">
-      {/* <div> */}
       <Calendar
         // onClickDay={(value) => fetchExerciseDay(value)}
         onClickDay={(value) => setDate(value.toLocaleDateString())}
       />
-      {/* </div> */}
       {/* <div>{date && date.toString()}</div> */}
     </div>
   );
