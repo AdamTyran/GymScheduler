@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExerciseList } from "../../pages/mainPage/MainPage";
+import { ExerciseItem, ExerciseList } from "../../pages/mainPage/MainPage";
 import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
 import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
 import Button from "../button/Button";
