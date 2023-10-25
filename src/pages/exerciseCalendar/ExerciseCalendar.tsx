@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "./Calendar.css";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
@@ -9,11 +9,18 @@ const ExerciseCalendar = () => {
   const [date, setDate] = useState<Object | undefined>(
     new Date().toLocaleDateString()
   );
+  const [fetchedData, setFetchedData] = useState<ExerciseList[] | undefined>(
+    []
+  );
   const { data } = useAxiosFetch<ExerciseList[]>(url);
 
+  useEffect(() => {
+    setFetchedData(data);
+  }, [data]);
+
   const log = () => {
-    console.log(data);
-    data?.map((item) => console.log(item));
+    console.log(fetchedData);
+    fetchedData?.map((item) => console.log(item));
   };
 
   return (
