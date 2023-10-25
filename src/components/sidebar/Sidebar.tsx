@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "./NavbarButtons";
+import { Button } from "./SidebarButtons";
 import { Link } from "react-router-dom";
 
 interface Props {

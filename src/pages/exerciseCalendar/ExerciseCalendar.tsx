@@ -17,7 +17,7 @@ const ExerciseCalendar = () => {
   };
 
   return (
-    <div className="px-2 pt-10 mx-auto w-screen flex justify-center">
+    <div className="px-2 pt-10 mx-auto flex justify-center">
       <Calendar
         // onClickDay={(value) => setDate(value.toLocaleDateString())}
         onClickDay={log}

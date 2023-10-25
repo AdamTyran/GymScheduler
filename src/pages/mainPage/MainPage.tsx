@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import DisplayExercise from "../../components/exerciseDisplay/DisplayExercise";
-import buttons from "../../components/sidebar/NavbarButtons";
+import buttons from "../../components/sidebar/SidebarButtons";
 import { Route, Routes } from "react-router-dom";
 import AddExerciseDay from "../addExerciseDay/AddExerciseDay";
 import ExerciseCalendar from "../exerciseCalendar/ExerciseCalendar";
-import axios from "axios";
 
 export interface ExerciseList {
   id: number;
