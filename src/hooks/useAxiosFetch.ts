@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ExerciseList } from "../pages/mainPage/MainPage";
 
 const useAxiosFetch = <T>(dataUrl: string, initValue?: T) => {
   const [data, setData] = useState<T | undefined>(initValue);

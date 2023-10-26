@@ -6,10 +6,14 @@ import { ExerciseItem } from "../mainPage/MainPage";
 
 const ExerciseCalendar = () => {
   const url = "http://localhost:3500/exerciseDay";
-  const [date, setDate] = useState<Object | undefined>(
-    new Date().toLocaleDateString()
-  );
+  // const [date, setDate] = useState<Object | undefined>(
+  //   new Date().toLocaleDateString()
+  // );
   const { data } = useAxiosFetch<ExerciseItem[]>(url, []);
+  // let clickedDay: ExerciseItem | undefined = undefined;
+  const [clickedDay, setClickedDay] = useState<ExerciseItem | undefined>(
+    undefined
+  );
 
   const log = () => {
     console.log(data);
@@ -17,16 +21,23 @@ const ExerciseCalendar = () => {
   };
 
   return (
-    <div className="px-2 pt-10 mx-auto flex justify-center">
+    <div className="px-2 pt-10 mx-auto flex flex-col">
       <Calendar
-        // onClickDay={(value) => setDate(value.toLocaleDateString())}
-        // onClickDay={log}
         onClickDay={(value) => {
           const date = value.toLocaleDateString();
-          // data?.find((item => item[value]))
+          setClickedDay(data?.find((item) => item.date === date));
         }}
       />
-      {/* <div>{date && date.toString()}</div> */}
+      <div className="mt-5 text-white text-lg">
+        {clickedDay &&
+          clickedDay?.exercises.map((item) => (
+            <div key={item.id}>
+              <p>{item.name}</p>
+              <p>{item.sets}</p>
+              <p>{item.reps}</p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
