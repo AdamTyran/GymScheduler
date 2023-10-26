@@ -2,7 +2,9 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 import "./Calendar.css";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
-import { ExerciseItem } from "../mainPage/MainPage";
+import { ExerciseItem, ExerciseList } from "../mainPage/MainPage";
+import MapExercises from "../../components/mapExercises/MapExercises";
+import exercises from "../../components/exerciseDisplay/ExercisesData";
 
 const ExerciseCalendar = () => {
   const url = "http://localhost:3500/exerciseDay";
@@ -10,6 +12,12 @@ const ExerciseCalendar = () => {
   const [clickedDay, setClickedDay] = useState<ExerciseItem | undefined>(
     undefined
   );
+  const onListChange = (val: ExerciseList[]) => {
+    if (!clickedDay) return;
+    const newClickedDay: ExerciseItem = { ...clickedDay };
+    newClickedDay.exercises = val;
+    setClickedDay(newClickedDay);
+  };
 
   return (
     <div className="px-2 pt-10 mx-auto flex flex-col">
@@ -20,13 +28,12 @@ const ExerciseCalendar = () => {
         }}
       />
       <div className="mt-5 text-white text-lg">
-        {clickedDay?.exercises.map((item) => (
-          <div key={item.id}>
-            <p>{item.name}</p>
-            <p>{item.sets}</p>
-            <p>{item.reps}</p>
-          </div>
-        ))}
+        {clickedDay && (
+          <MapExercises
+            list={clickedDay?.exercises}
+            onListChange={onListChange}
+          />
+        )}
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDis
 import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
 import Button from "../button/Button";
 import "react-calendar/dist/Calendar.css";
+import MapExercises from "../mapExercises/MapExercises";
 
 interface Props {
   exerciseList: ExerciseList[];
@@ -12,16 +13,6 @@ interface Props {
 
 const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
   const [date, setDate] = useState<string>("");
-  const onRepsChange = (value: number | undefined, index: number) => {
-    const newList = [...exerciseList];
-    newList[index].reps = value;
-    setExerciseList(newList);
-  };
-  const onSetsChange = (value: number | undefined, index: number) => {
-    const newList = [...exerciseList];
-    newList[index].sets = value;
-    setExerciseList(newList);
-  };
 
   const handleSubmit = () => {
     console.log("added");
@@ -45,23 +36,7 @@ const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
       />
 
       <li className="flex flex-col gap-2">
-        {exerciseList.map((item, index) => (
-          <React.Fragment key={item.id}>
-            {item.name}
-            <div className="flex flex-row justify-center gap-4 mb-4">
-              <InputNumberTextfield
-                name="sets"
-                value={item.sets}
-                onChange={(val: number | undefined) => onSetsChange(val, index)}
-              />
-              <InputNumberTextfield
-                name="reps"
-                value={item.reps}
-                onChange={(val: number | undefined) => onRepsChange(val, index)}
-              />
-            </div>
-          </React.Fragment>
-        ))}
+        <MapExercises list={exerciseList} onListChange={setExerciseList} />
       </li>
       <li>
         <Button text="Submit" onClick={handleSubmit} />
