@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import DisplayExercise from "../../components/exerciseDisplay/DisplayExercise";
 import buttons from "../../components/sidebar/SidebarButtons";
@@ -19,29 +18,6 @@ export interface ExerciseList {
 }
 
 const MainPage = () => {
-  //TODO delete this useEffect when db is ready
-  useEffect(() => {
-    setExerciseList([
-      {
-        date: "25.10.2023",
-        exercises: [
-          { id: 1, name: "deadlift", sets: 3, reps: 12 },
-          { id: 2, name: "deadlift", sets: 3, reps: 12 },
-          { id: 3, name: "deadlift", sets: 3, reps: 12 },
-        ],
-      },
-      {
-        date: "26.10.2023",
-        exercises: [
-          { id: 1, name: "deadlift", sets: 3, reps: 12 },
-          { id: 2, name: "deadlift", sets: 3, reps: 12 },
-          { id: 3, name: "deadlift", sets: 3, reps: 12 },
-        ],
-      },
-    ]);
-  }, []);
-  const [exerciseList, setExerciseList] = useState<ExerciseItem[]>([]);
-
   return (
     <div className="bg-gray-900 min-h-full flex text-white">
       <Sidebar buttons={buttons} />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExerciseItem, ExerciseList } from "../../pages/mainPage/MainPage";
+import { ExerciseList } from "../../pages/mainPage/MainPage";
 import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
 import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
 import Button from "../button/Button";
@@ -39,9 +39,6 @@ const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
           onChange={(e) => setDate(e.target.value)}
         />
       </li>
-      {/* <li className="flex justify-center">
-        <Calendar className="rounded-xl text-black" />
-      </li> */}
       <ExerciseListAddDisplay
         exerciseList={exerciseList}
         setExerciseList={setExerciseList}

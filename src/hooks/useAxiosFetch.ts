@@ -9,9 +9,8 @@ const useAxiosFetch = <T>(dataUrl: string, initValue?: T) => {
       try {
         const response = await axios.get<T>(dataUrl);
         setData(response.data);
-        console.log(response.data);
       } catch (err: any) {
-        console.log(err.message);
+        alert(err.message);
       }
     };
     func();
