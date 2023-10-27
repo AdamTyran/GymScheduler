@@ -4,7 +4,7 @@ import "./Calendar.css";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
 import { ExerciseItem, ExerciseList } from "../mainPage/MainPage";
 import MapExercises from "../../components/mapExercises/MapExercises";
-import exercises from "../../components/exerciseDisplay/ExercisesData";
+import Button from "../../components/button/Button";
 
 const ExerciseCalendar = () => {
   const url = "http://localhost:3500/exerciseDay";
@@ -29,10 +29,13 @@ const ExerciseCalendar = () => {
       />
       <div className="mt-5 text-white text-lg">
         {clickedDay && (
-          <MapExercises
-            list={clickedDay?.exercises}
-            onListChange={onListChange}
-          />
+          <div>
+            <MapExercises
+              list={clickedDay?.exercises}
+              onListChange={onListChange}
+            />
+            <Button text="Update Day" onClick={() => console.log("changed")} />
+          </div>
         )}
       </div>
     </div>

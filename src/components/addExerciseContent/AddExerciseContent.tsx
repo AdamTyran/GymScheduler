@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ExerciseList } from "../../pages/mainPage/MainPage";
 import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
-import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
 import Button from "../button/Button";
 import "react-calendar/dist/Calendar.css";
 import MapExercises from "../mapExercises/MapExercises";
@@ -12,7 +11,9 @@ interface Props {
 }
 
 const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
-  const [date, setDate] = useState<string>("");
+  const [date, setDate] = useState<string>(() =>
+    new Date().toLocaleDateString()
+  );
 
   const handleSubmit = () => {
     console.log("added");
@@ -25,9 +26,13 @@ const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
       </li>
       <li>
         <input
+          value={date}
           className="text-black"
           type="date"
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(e) => {
+            setDate(e.target.value);
+            console.log(date);
+          }}
         />
       </li>
       <ExerciseListAddDisplay
