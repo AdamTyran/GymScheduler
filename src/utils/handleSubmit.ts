@@ -1,19 +1,21 @@
-import { ExerciseList } from "../pages/mainPage/MainPage";
+import { ExerciseItem, ExerciseList } from "../pages/mainPage/MainPage";
 import api from "./instantiateAxios";
 
 interface Props {
-  data: ExerciseList[];
-  name: string;
-  sets: number;
-  reps: number;
+  date: string;
+  exerciseItem: ExerciseList[];
 }
 
-const handleSubmit = async ({ data, name, sets, reps }: Props) => {
-  const id = data.length ? data[data.length - 1].id + 1 : 1;
-  const newExercise = { id, name: name, sets: sets, reps: reps };
+const handleSubmit = async ({ date, exerciseItem }: Props) => {
+  // const id = exerciseItem.length
+  //   ? exerciseItem[exerciseItem.length - 1].id + 1
+  //   : 1;
+  // const newExercise = { id, name: name, sets: sets, reps: reps };
+
+  const newExerciseDay: ExerciseItem = { date, exercises: exerciseItem };
 
   try {
-    await api.post("/exercises", newExercise);
+    await api.post("/exercises", newExerciseDay);
   } catch (err) {
     console.log(err);
   }
