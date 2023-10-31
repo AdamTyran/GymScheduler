@@ -26,7 +26,9 @@ const ExerciseCalendar = () => {
         onClickDay={(value) => {
           const date = value.toLocaleDateString();
           setClickedDay(data?.find((item) => item.date === date));
+          console.log(value);
         }}
+        defaultValue={new Date()}
       />
       <div className="mt-5 text-white text-lg">
         {clickedDay && (
@@ -38,11 +40,7 @@ const ExerciseCalendar = () => {
             <Button text="Update Day" onClick={() => console.log("changed")} />
           </div>
         )}
-        {!clickedDay && (
-          <div>
-            <AddExerciseDay />
-          </div>
-        )}
+        {!clickedDay && <AddExerciseDay />}
       </div>
     </div>
   );
