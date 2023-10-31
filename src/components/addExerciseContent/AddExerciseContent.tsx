@@ -11,17 +11,13 @@ interface Props {
 }
 
 const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
-  const [date, setDate] = useState<string>(() =>
-    new Date().toLocaleDateString()
-  );
-
   const handleSubmit = () => {
     console.log("added");
   };
 
   return (
-    <div className="flex flex-col gap-4">
-      <li>
+    <div className="flex flex-col gap-4 mt-5">
+      {/* <li>
         <label>Date</label>
       </li>
       <li>
@@ -34,7 +30,7 @@ const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
             console.log(date);
           }}
         />
-      </li>
+      </li> */}
       <ExerciseListAddDisplay
         exerciseList={exerciseList}
         setExerciseList={setExerciseList}
