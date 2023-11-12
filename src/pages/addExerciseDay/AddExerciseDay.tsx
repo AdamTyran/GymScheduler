@@ -4,18 +4,15 @@ import AddExerciseContent from "../../components/addExerciseContent/AddExerciseC
 
 interface Props {
   clickedDate: string;
-  clickedDay: ExerciseItem | undefined;
   newExerciseDay: ExerciseList[];
   setNewExerciseDay(list: ExerciseList[]): void;
 }
 
 const AddExerciseDay = ({
   clickedDate,
-  clickedDay,
   newExerciseDay,
   setNewExerciseDay,
 }: Props) => {
-  const [newDay, setNewDay] = useState<ExerciseList[]>([]);
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
@@ -23,12 +20,9 @@ const AddExerciseDay = ({
     >
       <ul className="flex flex-col gap-4">
         <AddExerciseContent
-          exerciseList={newDay}
-          setExerciseList={setNewDay}
+          exerciseList={newExerciseDay}
+          setExerciseList={setNewExerciseDay}
           clickedDate={clickedDate}
-          clickedDay={clickedDay}
-          newExerciseDay={newExerciseDay}
-          setNewExerciseDay={setNewExerciseDay}
         />
       </ul>
     </form>

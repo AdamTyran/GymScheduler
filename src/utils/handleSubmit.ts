@@ -15,8 +15,11 @@ const handleSubmit = async ({ date, exerciseItem }: Props) => {
 
   try {
     if (exerciseItem) {
-      const newExerciseDay: ExerciseItem = { date, exercises: exerciseItem };
-      await api.post("/exercises", newExerciseDay);
+      const newExerciseDay: ExerciseItem = {
+        date: date,
+        exercises: exerciseItem,
+      };
+      await api.post("/exerciseDay", newExerciseDay);
       console.log("added");
     } else {
       alert("Execises list cannot be empty");
