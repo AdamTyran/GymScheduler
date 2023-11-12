@@ -3,19 +3,24 @@ import api from "./instantiateAxios";
 
 interface Props {
   date: string;
-  exerciseItem: ExerciseList[];
+  exerciseItem: ExerciseList[] | undefined;
 }
 
 const handleSubmit = async ({ date, exerciseItem }: Props) => {
-  // const id = exerciseItem.length
-  //   ? exerciseItem[exerciseItem.length - 1].id + 1
-  //   : 1;
-  // const newExercise = { id, name: name, sets: sets, reps: reps };
-
-  const newExerciseDay: ExerciseItem = { date, exercises: exerciseItem };
+  // if (exerciseItem !== undefined) {
+  //   const newExerciseDay: ExerciseItem = { date, exercises: exerciseItem };
+  // } else {
+  //   alert("chuj");
+  // }
 
   try {
-    await api.post("/exercises", newExerciseDay);
+    if (exerciseItem) {
+      const newExerciseDay: ExerciseItem = { date, exercises: exerciseItem };
+      await api.post("/exercises", newExerciseDay);
+      console.log("added");
+    } else {
+      alert("Execises list cannot be empty");
+    }
   } catch (err) {
     console.log(err);
   }

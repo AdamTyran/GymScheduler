@@ -1,36 +1,29 @@
-import React, { useState } from "react";
-import { ExerciseList } from "../../pages/mainPage/MainPage";
+import { ExerciseItem, ExerciseList } from "../../pages/mainPage/MainPage";
 import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
 import Button from "../button/Button";
 import "react-calendar/dist/Calendar.css";
 import MapExercises from "../mapExercises/MapExercises";
+import handleSubmit from "../../utils/handleSubmit";
 
 interface Props {
   exerciseList: ExerciseList[];
   setExerciseList(list: ExerciseList[]): void;
+  clickedDate: string;
+  clickedDay: ExerciseItem | undefined;
+  newExerciseDay: ExerciseList[];
+  setNewExerciseDay(list: ExerciseList[]): void;
 }
 
-const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
-  const handleSubmit = () => {
-    console.log("added");
-  };
-
+const AddExerciseContent = ({
+  exerciseList,
+  setExerciseList,
+  clickedDate,
+  clickedDay,
+  newExerciseDay,
+  setNewExerciseDay,
+}: Props) => {
   return (
     <div className="flex flex-col gap-4 mt-5">
-      {/* <li>
-        <label>Date</label>
-      </li>
-      <li>
-        <input
-          value={date}
-          className="text-black"
-          type="date"
-          onChange={(e) => {
-            setDate(e.target.value);
-            console.log(date);
-          }}
-        />
-      </li> */}
       <ExerciseListAddDisplay
         exerciseList={exerciseList}
         setExerciseList={setExerciseList}
@@ -40,7 +33,15 @@ const AddExerciseContent = ({ exerciseList, setExerciseList }: Props) => {
         <MapExercises list={exerciseList} onListChange={setExerciseList} />
       </li>
       <li>
-        <Button text="Submit" onClick={handleSubmit} />
+        <Button
+          text="Submit"
+          onClick={() =>
+            handleSubmit({
+              date: clickedDate,
+              exerciseItem: newExerciseDay,
+            })
+          }
+        />
       </li>
     </div>
   );

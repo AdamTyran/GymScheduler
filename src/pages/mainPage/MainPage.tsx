@@ -2,7 +2,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import DisplayExercise from "../../components/exerciseDisplay/DisplayExercise";
 import buttons from "../../components/sidebar/SidebarButtons";
 import { Route, Routes } from "react-router-dom";
-import AddExerciseDay from "../addExerciseDay/AddExerciseDay";
+// import AddExerciseDay from "../addExerciseDay/AddExerciseDay";
 import ExerciseCalendar from "../exerciseCalendar/ExerciseCalendar";
 
 export interface ExerciseItem {
@@ -25,7 +25,7 @@ const MainPage = () => {
         <Route path="/" element={<DisplayExercise />} />
         <Route path="/exercises" element={<DisplayExercise />} />
         <Route path="/calendar" element={<ExerciseCalendar />} />
-        <Route path="/addexercise" element={<AddExerciseDay />} />
+        {/* <Route path="/addexercise" element={<AddExerciseDay />} /> */}
       </Routes>
     </div>
   );

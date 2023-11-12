@@ -10,9 +10,13 @@ import AddExerciseDay from "../addExerciseDay/AddExerciseDay";
 const ExerciseCalendar = () => {
   const url = "http://localhost:3500/exerciseDay";
   const { data } = useAxiosFetch<ExerciseItem[]>(url, []);
+  const [clickedDate, setClickedDate] = useState<string>(
+    new Date().toLocaleDateString()
+  );
   const [clickedDay, setClickedDay] = useState<ExerciseItem | undefined>(
     undefined
   );
+  const [newExerciseDay, setNewExerciseDay] = useState<ExerciseList[]>([]);
   const onListChange = (val: ExerciseList[]) => {
     if (!clickedDay) return;
     const newClickedDay: ExerciseItem = { ...clickedDay };
@@ -26,7 +30,7 @@ const ExerciseCalendar = () => {
         onClickDay={(value) => {
           const date = value.toLocaleDateString();
           setClickedDay(data?.find((item) => item.date === date));
-          console.log(value);
+          setClickedDate(value.toLocaleDateString());
         }}
         defaultValue={new Date()}
       />
@@ -37,10 +41,17 @@ const ExerciseCalendar = () => {
               list={clickedDay?.exercises}
               onListChange={onListChange}
             />
-            <Button text="Update Day" onClick={() => console.log("changed")} />
+            <Button text="Update Day" onClick={() => console.log("test")} />
           </div>
         )}
-        {!clickedDay && <AddExerciseDay />}
+        {!clickedDay && (
+          <AddExerciseDay
+            clickedDate={clickedDate}
+            clickedDay={clickedDay}
+            newExerciseDay={newExerciseDay}
+            setNewExerciseDay={setNewExerciseDay}
+          />
+        )}
       </div>
     </div>
   );
