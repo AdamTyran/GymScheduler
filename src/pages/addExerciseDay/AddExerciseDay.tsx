@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { ExerciseItem, ExerciseList } from "../mainPage/MainPage";
 import AddExerciseContent from "../../components/addExerciseContent/AddExerciseContent";
 

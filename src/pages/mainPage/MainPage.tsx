@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import ExerciseCalendar from "../exerciseCalendar/ExerciseCalendar";
 
 export interface ExerciseItem {
+  id: number;
   date: string;
   exercises: ExerciseList[];
 }

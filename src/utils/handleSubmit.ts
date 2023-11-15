@@ -1,3 +1,4 @@
+import useAxiosFetch from "../hooks/useAxiosFetch";
 import { ExerciseItem, ExerciseList } from "../pages/mainPage/MainPage";
 import api from "./instantiateAxios";
 
@@ -7,22 +8,18 @@ interface Props {
 }
 
 const handleSubmit = async ({ date, exerciseItem }: Props) => {
-  // if (exerciseItem !== undefined) {
-  //   const newExerciseDay: ExerciseItem = { date, exercises: exerciseItem };
-  // } else {
-  //   alert("chuj");
-  // }
-
   try {
     if (exerciseItem) {
       const newExerciseDay: ExerciseItem = {
+        id: Math.random(),
         date: date,
         exercises: exerciseItem,
       };
+      console.log(newExerciseDay);
       await api.post("/exerciseDay", newExerciseDay);
       console.log("added");
     } else {
-      alert("Execises list cannot be empty");
+      alert("Exercises list cannot be empty");
     }
   } catch (err) {
     console.log(err);
