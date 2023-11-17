@@ -6,6 +6,7 @@ import { ExerciseItem, ExerciseList } from "../mainPage/MainPage";
 import MapExercises from "../../components/mapExercises/MapExercises";
 import Button from "../../components/button/Button";
 import AddExerciseDay from "../addExerciseDay/AddExerciseDay";
+import handleChange from "../../utils/handleChange";
 
 const ExerciseCalendar = () => {
   const url = "http://localhost:3500/exerciseDay";
@@ -41,7 +42,15 @@ const ExerciseCalendar = () => {
               list={clickedDay?.exercises}
               onListChange={onListChange}
             />
-            <Button text="Update Day" onClick={() => console.log("test")} />
+            <Button
+              text="Update Day"
+              onClick={() =>
+                handleChange({
+                  selectedDay: clickedDay,
+                  updatedExerciseList: newExerciseDay,
+                })
+              }
+            />
           </div>
         )}
         {!clickedDay && (

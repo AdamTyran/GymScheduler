@@ -51,38 +51,7 @@
     {
       "id": 534534,
       "date": "15.11.2023",
-      "exercises": [
-        {
-          "id": 1,
-          "name": "fsdfdsfs",
-          "sets": 12,
-          "reps": 321
-        },
-        {
-          "id": 2,
-          "name": "fdsfsd",
-          "sets": 32,
-          "reps": 21
-        },
-        {
-          "id": 3,
-          "name": "fds",
-          "sets": 2,
-          "reps": 3
-        },
-        {
-          "id": 4,
-          "name": "fds",
-          "sets": 11,
-          "reps": 123
-        },
-        {
-          "id": 5,
-          "name": "fds",
-          "sets": 343,
-          "reps": 1
-        }
-      ]
+      "exercises": []
     }
   ]
 }
