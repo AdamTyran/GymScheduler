@@ -2,12 +2,14 @@ import { ExerciseItem, ExerciseList } from "../mainPage/MainPage";
 import AddExerciseContent from "../../components/addExerciseContent/AddExerciseContent";
 
 interface Props {
+  setter(list: ExerciseItem): void;
   clickedDate: string;
   newExerciseDay: ExerciseList[];
   setNewExerciseDay(list: ExerciseList[]): void;
 }
 
 const AddExerciseDay = ({
+  setter,
   clickedDate,
   newExerciseDay,
   setNewExerciseDay,
@@ -19,6 +21,7 @@ const AddExerciseDay = ({
     >
       <ul className="flex flex-col gap-4">
         <AddExerciseContent
+          setter={setter}
           exerciseList={newExerciseDay}
           setExerciseList={setNewExerciseDay}
           clickedDate={clickedDate}

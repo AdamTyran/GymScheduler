@@ -76,6 +76,7 @@ const ExerciseCalendar = () => {
         )}
         {!clickedDay && (
           <AddExerciseDay
+            setter={setClickedDay}
             clickedDate={clickedDate}
             newExerciseDay={newExerciseDay}
             setNewExerciseDay={setNewExerciseDay}

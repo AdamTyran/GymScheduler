@@ -5,9 +5,10 @@ import api from "./instantiateAxios";
 interface Props {
   date: string;
   exerciseItem: ExerciseList[] | undefined;
+  setter(list: ExerciseItem): void;
 }
 
-const handleSubmit = async ({ date, exerciseItem }: Props) => {
+const handleSubmit = async ({ date, exerciseItem, setter }: Props) => {
   try {
     if (exerciseItem) {
       const newExerciseDay: ExerciseItem = {
@@ -16,6 +17,7 @@ const handleSubmit = async ({ date, exerciseItem }: Props) => {
         exercises: exerciseItem,
       };
       await api.post("/exerciseDay", newExerciseDay);
+      setter(newExerciseDay);
     } else {
       alert("Exercises list cannot be empty");
     }

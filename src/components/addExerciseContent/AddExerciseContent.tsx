@@ -1,16 +1,18 @@
-import { ExerciseList } from "../../pages/mainPage/MainPage";
+import { ExerciseItem, ExerciseList } from "../../pages/mainPage/MainPage";
 import InputAdd from "../inputAdd/InputAdd";
 import Button from "../button/Button";
 import MapExercises from "../mapExercises/MapExercises";
 import handleSubmit from "../../utils/handleSubmit";
 
 interface Props {
+  setter(list: ExerciseItem): void;
   exerciseList: ExerciseList[];
   setExerciseList(list: ExerciseList[]): void;
   clickedDate: string;
 }
 
 const AddExerciseContent = ({
+  setter,
   exerciseList,
   setExerciseList,
   clickedDate,
@@ -29,6 +31,7 @@ const AddExerciseContent = ({
             handleSubmit({
               date: clickedDate,
               exerciseItem: exerciseList,
+              setter: setter,
             });
             setExerciseList([]);
           }}

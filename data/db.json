@@ -107,6 +107,72 @@
           "reps": 0
         }
       ]
+    },
+    {
+      "id": 0.9351610669075303,
+      "date": "24.11.2023",
+      "exercises": [
+        {
+          "id": 1,
+          "name": "fdsfsd",
+          "sets": 0,
+          "reps": 0
+        },
+        {
+          "id": 2,
+          "name": "fdsfsd",
+          "sets": 0,
+          "reps": 0
+        },
+        {
+          "id": 3,
+          "name": "fsdfsd",
+          "sets": 0,
+          "reps": 0
+        },
+        {
+          "id": 4,
+          "name": "fsdf",
+          "sets": 0,
+          "reps": 0
+        }
+      ]
+    },
+    {
+      "id": 0.4616297983757449,
+      "date": "16.11.2023",
+      "exercises": [
+        {
+          "id": 1,
+          "name": "fdsfsd",
+          "sets": 0,
+          "reps": 0
+        },
+        {
+          "id": 2,
+          "name": "fsdfsdfsd",
+          "sets": 0,
+          "reps": 0
+        },
+        {
+          "id": 3,
+          "name": "fsdfsdf",
+          "sets": 0,
+          "reps": 0
+        },
+        {
+          "id": 4,
+          "name": "sdfsdfsd",
+          "sets": 0,
+          "reps": 0
+        },
+        {
+          "id": 5,
+          "name": "fsdfsd",
+          "sets": 0,
+          "reps": 0
+        }
+      ]
     }
   ]
 }
