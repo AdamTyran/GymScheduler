@@ -5,10 +5,10 @@ import Button from "../button/Button";
 
 interface Props {
   exerciseList: ExerciseList[];
-  setExerciseList(list: ExerciseList[]): void;
+  onInputChange(val: ExerciseList): void;
 }
 
-const ExerciseListAddDisplay = ({ exerciseList, setExerciseList }: Props) => {
+const InputEdit = ({ exerciseList, onInputChange }: Props) => {
   const [newItem, setNewItem] = useState<string>("");
   const addItem = (itemName: string) => {
     if (itemName === "") return;
@@ -16,24 +16,22 @@ const ExerciseListAddDisplay = ({ exerciseList, setExerciseList }: Props) => {
       ? exerciseList[exerciseList.length - 1].id + 1
       : 1;
     const newExercise = { id: id, name: itemName, sets: 0, reps: 0 };
-    setExerciseList([...exerciseList, newExercise]);
+    onInputChange(newExercise);
     setNewItem("");
   };
 
   return (
     <div className="relative block text-gray-400 ">
-      <li>
-        <AddExerciseTextfield
-          text="Input Exercise!"
-          newItem={newItem}
-          setNewItem={setNewItem}
-        />
-        <div className="absolute right-2.5 bottom-2.5">
-          <Button text="Add" onClick={() => addItem(newItem)} />
-        </div>
-      </li>
+      <AddExerciseTextfield
+        text="Input Exercise!"
+        newItem={newItem}
+        setNewItem={setNewItem}
+      />
+      <div className="absolute right-2.5 bottom-2.5">
+        <Button text="Add" onClick={() => addItem(newItem)} />
+      </div>
     </div>
   );
 };
 
-export default ExerciseListAddDisplay;
+export default InputEdit;

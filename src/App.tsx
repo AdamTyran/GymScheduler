@@ -1,6 +1,5 @@
 import Banner from "./components/banner/Banner";
 import MainPage from "./pages/mainPage/MainPage";
-import Footer from "./components/footer/Footer";
 
 function App() {
   return (

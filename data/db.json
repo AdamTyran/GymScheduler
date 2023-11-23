@@ -45,13 +45,68 @@
           "name": "deadlift",
           "sets": 3,
           "reps": 12
+        },
+        {
+          "id": 4,
+          "name": "fgdsfsdfsd",
+          "sets": 3,
+          "reps": 12
         }
       ]
     },
     {
       "id": 534534,
       "date": "15.11.2023",
-      "exercises": []
+      "exercises": [
+        {
+          "id": 1,
+          "name": "fdsfsdfsdf",
+          "sets": 2,
+          "reps": 20
+        },
+        {
+          "id": 2,
+          "name": "fdsfsdfsd",
+          "sets": 21,
+          "reps": 22
+        },
+        {
+          "id": 3,
+          "name": "fdsfsdfsd",
+          "sets": 11,
+          "reps": 2
+        }
+      ]
+    },
+    {
+      "id": 0.5226930219659267,
+      "date": "22.11.2023",
+      "exercises": [
+        {
+          "id": 1,
+          "name": "gfdgdf",
+          "sets": 12,
+          "reps": 22
+        },
+        {
+          "id": 2,
+          "name": "gdfgdf",
+          "sets": 0,
+          "reps": 12
+        },
+        {
+          "id": 3,
+          "name": "gdfgdf",
+          "sets": 0,
+          "reps": 0
+        },
+        {
+          "id": 4,
+          "name": "gfdgd",
+          "sets": 0,
+          "reps": 0
+        }
+      ]
     }
   ]
 }

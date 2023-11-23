@@ -4,19 +4,22 @@ import api from "./instantiateAxios";
 interface Props {
   selectedDay: ExerciseItem;
   updatedExerciseList: ExerciseList[];
+  setter(list: ExerciseItem | undefined): void;
 }
 
-const handleChange = async ({ selectedDay, updatedExerciseList }: Props) => {
+const handleChange = async ({
+  selectedDay,
+  updatedExerciseList,
+  setter,
+}: Props) => {
   const updatedDay: ExerciseItem = {
     id: selectedDay.id,
     date: selectedDay.date,
     exercises: updatedExerciseList,
   };
   try {
-    const response = await api.put(
-      `/exerciseDay/${selectedDay.id}`,
-      updatedDay
-    );
+    await api.put(`/exerciseDay/${selectedDay.id}`, updatedDay);
+    setter(updatedDay);
   } catch (err) {
     console.log(`Error: ${err}`);
   }

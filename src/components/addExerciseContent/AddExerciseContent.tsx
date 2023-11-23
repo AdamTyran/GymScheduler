@@ -1,5 +1,5 @@
-import { ExerciseItem, ExerciseList } from "../../pages/mainPage/MainPage";
-import ExerciseListAddDisplay from "../exerciseListAddDisplay/ExerciseListAddDisplay";
+import { ExerciseList } from "../../pages/mainPage/MainPage";
+import InputAdd from "../inputAdd/InputAdd";
 import Button from "../button/Button";
 import MapExercises from "../mapExercises/MapExercises";
 import handleSubmit from "../../utils/handleSubmit";
@@ -17,10 +17,7 @@ const AddExerciseContent = ({
 }: Props) => {
   return (
     <div className="flex flex-col gap-4 mt-5">
-      <ExerciseListAddDisplay
-        exerciseList={exerciseList}
-        setExerciseList={setExerciseList}
-      />
+      <InputAdd exerciseList={exerciseList} setExerciseList={setExerciseList} />
 
       <li className="flex flex-col gap-2">
         <MapExercises list={exerciseList} onListChange={setExerciseList} />
@@ -28,12 +25,13 @@ const AddExerciseContent = ({
       <li>
         <Button
           text="Submit"
-          onClick={() =>
+          onClick={() => {
             handleSubmit({
               date: clickedDate,
               exerciseItem: exerciseList,
-            })
-          }
+            });
+            setExerciseList([]);
+          }}
         />
       </li>
     </div>

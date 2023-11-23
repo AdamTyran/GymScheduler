@@ -1,16 +1,15 @@
-import { ExerciseList } from "../pages/mainPage/MainPage";
+import { ExerciseItem, ExerciseList } from "../pages/mainPage/MainPage";
 import api from "./instantiateAxios";
 
 interface Props {
-  state: ExerciseList[];
-  setState(list: ExerciseList[]): void;
-  id: number;
+  day: ExerciseItem;
+  setter(list: ExerciseItem | undefined): void;
 }
 
-const handleDelete = async ({ state, setState, id }: Props) => {
+const handleDelete = async ({ day, setter }: Props) => {
   try {
-    await api.delete(`/exercises/${id}`);
-    setState(state.filter((item) => item.id !== id));
+    await api.delete(`/exerciseDay/${day.id}`);
+    setter(undefined);
   } catch (err) {
     console.log(`Error: ${err}`);
   }
