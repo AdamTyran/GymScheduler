@@ -26,7 +26,6 @@ const MainPage = () => {
         <Route path="/" element={<DisplayExercise />} />
         <Route path="/exercises" element={<DisplayExercise />} />
         <Route path="/calendar" element={<ExerciseCalendar />} />
-        {/* <Route path="/addexercise" element={<AddExerciseDay />} /> */}
       </Routes>
     </div>
   );

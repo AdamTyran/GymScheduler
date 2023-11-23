@@ -1,6 +1,7 @@
 import React from "react";
 import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
 import { ExerciseList } from "../../pages/mainPage/MainPage";
+import { MdOutlineDeleteForever } from "react-icons/md";
 
 interface Props {
   list: ExerciseList[];
@@ -16,6 +17,11 @@ const MapExercises = ({ list, onListChange }: Props) => {
   const onSetsChange = (value: number | undefined, index: number) => {
     const newList = [...list];
     newList[index].sets = value;
+    onListChange(newList);
+  };
+  const deleteEntry = (id: number) => {
+    const listCopy = [...list];
+    const newList = listCopy.filter((item) => item.id !== id);
     onListChange(newList);
   };
 
@@ -35,6 +41,9 @@ const MapExercises = ({ list, onListChange }: Props) => {
               value={item.reps}
               onChange={(val: number | undefined) => onRepsChange(val, index)}
             />
+            <button onClick={() => deleteEntry(item.id)}>
+              <MdOutlineDeleteForever className="h-8 w-8" />
+            </button>
           </div>
         </React.Fragment>
       ))}
