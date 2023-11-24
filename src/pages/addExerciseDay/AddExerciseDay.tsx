@@ -19,14 +19,14 @@ const AddExerciseDay = ({
       onSubmit={(e) => e.preventDefault()}
       className="w-full max-w-md px-2 mx-auto"
     >
-      <ul className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
         <AddExerciseContent
           setter={setter}
           exerciseList={newExerciseDay}
           setExerciseList={setNewExerciseDay}
           clickedDate={clickedDate}
         />
-      </ul>
+      </div>
     </form>
   );
 };

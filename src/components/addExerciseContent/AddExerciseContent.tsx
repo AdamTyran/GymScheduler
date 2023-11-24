@@ -21,10 +21,10 @@ const AddExerciseContent = ({
     <div className="flex flex-col gap-4 mt-5">
       <InputAdd exerciseList={exerciseList} setExerciseList={setExerciseList} />
 
-      <li className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2">
         <MapExercises list={exerciseList} onListChange={setExerciseList} />
-      </li>
-      <li>
+      </div>
+      <div>
         <Button
           text="Submit"
           onClick={() => {
@@ -36,7 +36,7 @@ const AddExerciseContent = ({
             setExerciseList([]);
           }}
         />
-      </li>
+      </div>
     </div>
   );
 };

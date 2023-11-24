@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "./Calendar.css";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
@@ -7,7 +7,6 @@ import MapExercises from "../../components/mapExercises/MapExercises";
 import Button from "../../components/button/Button";
 import AddExerciseDay from "../addExerciseDay/AddExerciseDay";
 import handleChange from "../../utils/handleChange";
-import InputAdd from "../../components/inputAdd/InputAdd";
 import InputEdit from "../../components/inputEdit/InputEdit";
 import handleDelete from "../../utils/handleDelete";
 
@@ -34,20 +33,24 @@ const ExerciseCalendar = () => {
     setClickedDay(correctedDay);
   };
 
+  useEffect(() => {
+    setClickedDay(data?.find((item) => item.date === clickedDate));
+    // eslint-disable-next-line
+  }, [data]);
+
   return (
     <div className="px-2 pt-10 mx-auto flex flex-col">
       <Calendar
         onClickDay={(value) => {
           const date = value.toLocaleDateString();
           setClickedDay(data?.find((item) => item.date === date));
-          setClickedDate(value.toLocaleDateString());
+          setClickedDate(date);
         }}
         defaultValue={new Date()}
       />
       <div className="mt-5 text-white text-lg">
         {clickedDay && (
-          <div>
-            {/*Change it to correct values */}
+          <React.Fragment>
             <InputEdit
               exerciseList={clickedDay.exercises}
               onInputChange={onInputChange}
@@ -72,7 +75,7 @@ const ExerciseCalendar = () => {
                 handleDelete({ day: clickedDay, setter: setClickedDay })
               }
             />
-          </div>
+          </React.Fragment>
         )}
         {!clickedDay && (
           <AddExerciseDay

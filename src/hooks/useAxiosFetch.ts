@@ -14,7 +14,7 @@ const useAxiosFetch = <T>(dataUrl: string, initValue?: T) => {
       }
     };
     func();
-  }, [dataUrl]);
+  }, [data, dataUrl]);
 
   return { data };
 };
