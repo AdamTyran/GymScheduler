@@ -8,7 +8,7 @@ interface Props {
 
 const Sidebar = (props: Props) => {
   return (
-    <div className="flex flex-col z-40 w-64 bg-gray-800 border-r border-solid border-white">
+    <div className="flex flex-col z-40 w-64 min-h-screen bg-gray-800 border-r border-solid border-white">
       {props.buttons.map((item) => (
         <div
           key={item.id}

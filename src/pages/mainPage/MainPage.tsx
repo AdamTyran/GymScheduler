@@ -21,7 +21,7 @@ export interface ExerciseList {
 const MainPage = () => {
   return (
     <div className="bg-gray-900 min-h-full flex text-white">
-      <Sidebar buttons={buttons} />
+      {/* <Sidebar buttons={buttons} /> */}
       <Routes>
         <Route path="/" element={<DisplayExercise />} />
         <Route path="/exercises" element={<DisplayExercise />} />
