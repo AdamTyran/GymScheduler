@@ -4,12 +4,17 @@ import { Link } from "react-router-dom";
 
 interface Props {
   buttons: Button[];
+  open: boolean;
 }
 
-const Sidebar = (props: Props) => {
+const Sidebar = ({ buttons, open }: Props) => {
   return (
-    <div className="flex flex-col z-40 w-64 min-h-screen bg-gray-800 border-r border-solid border-white">
-      {props.buttons.map((item) => (
+    <div
+      className={`${
+        open ? "lg:hidden" : ""
+      } flex flex-col z-40 w-64 h-full bg-gray-800 border-r border-solid border-white`}
+    >
+      {buttons.map((item) => (
         <div
           key={item.id}
           className="px-3 overflow-y-auto space-y-2 font-medium pb-5 [&:first-child]:pt-3"
