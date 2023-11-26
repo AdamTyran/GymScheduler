@@ -23,7 +23,7 @@ export interface ExerciseList {
 
 const MainPage = ({ open }: Props) => {
   return (
-    <div className="bg-gray-900 min-h-full flex text-white">
+    <div className="bg-gray-900 min-h-full h-full flex text-white">
       <Sidebar buttons={buttons} open={open} />
       <Routes>
         <Route path="/" element={<DisplayExercise />} />
