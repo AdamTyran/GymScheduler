@@ -26,8 +26,7 @@ const FormAdd = ({
       </div>
       <div>
         <Button
-          // eslint-disable-next-line react/style-prop-object
-          style="bg-blue-700 hover:bg-blue-800"
+          className="bg-blue-700 hover:bg-blue-800"
           text="Submit"
           onClick={() => {
             handleSubmit({

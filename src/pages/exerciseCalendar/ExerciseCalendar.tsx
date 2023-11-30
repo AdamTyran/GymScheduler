@@ -54,8 +54,7 @@ const ExerciseCalendar = () => {
             />
             <MapList list={clickedDay.exercises} onListChange={onListChange} />
             <Button
-              // eslint-disable-next-line react/style-prop-object
-              style="bg-blue-700 hover:bg-blue-800"
+              className="bg-blue-700 hover:bg-blue-800"
               text="Update Day"
               onClick={() =>
                 handleChange({
@@ -66,8 +65,7 @@ const ExerciseCalendar = () => {
               }
             />
             <Button
-              // eslint-disable-next-line react/style-prop-object
-              style="bg-red-700 hover:bg-red-800"
+              className="bg-red-700 hover:bg-red-800"
               text="Delete day"
               onClick={() =>
                 handleDelete({ day: clickedDay, setter: setClickedDay })

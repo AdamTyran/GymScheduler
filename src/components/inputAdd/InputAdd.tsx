@@ -29,8 +29,7 @@ const InputAdd = ({ exerciseList, setExerciseList }: Props) => {
       />
       <div className="absolute right-2.5 bottom-2.5">
         <Button
-          // eslint-disable-next-line react/style-prop-object
-          style="bg-blue-700 hover:bg-blue-800"
+          className="bg-blue-700 hover:bg-blue-800"
           text="Add"
           onClick={() => addItem(newItem)}
         />
