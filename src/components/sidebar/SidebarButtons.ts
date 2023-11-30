@@ -7,8 +7,8 @@ export interface Button {
 const buttons: Button[] = [
   {
     id: 1,
-    name: "Exercises",
-    path: "/exercises",
+    name: "Home",
+    path: "/",
   },
   {
     id: 2,
@@ -17,11 +17,6 @@ const buttons: Button[] = [
   },
   {
     id: 3,
-    name: "Add Exercise",
-    path: "/addexercise",
-  },
-  {
-    id: 4,
     name: "About",
     path: "/about",
   },

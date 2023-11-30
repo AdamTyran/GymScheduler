@@ -11,8 +11,8 @@ const Sidebar = ({ buttons, open }: Props) => {
   return (
     <div
       className={`${
-        open ? "lg:hidden" : ""
-      } flex flex-col z-40 w-64 h-full bg-gray-800 border-r border-solid border-white`}
+        open ? "hidden" : ""
+      } flex flex-col z-40 w-64 bg-gray-800 border-r border-solid border-white`}
     >
       {buttons.map((item) => (
         <div

@@ -5,16 +5,18 @@ import MainPage from "./pages/mainPage/MainPage";
 import React, { useState } from "react";
 
 function App() {
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState(true);
   const toggleSidebar = () => {
     setOpen(!open);
   };
   return (
-    <div className="w-auto text-center flex font-serif">
-      {/* <Sidebar buttons={buttons} open={open} /> */}
-      <div className="flex-column h-[95vh] w-screen">
+    <div className="h-screen w-screen bg-gray-900">
+      <div className="h-full flex flex-col">
         <Banner toggleSidebar={toggleSidebar} />
-        <MainPage open={open} />
+        <div className="flex flex-row">
+          <Sidebar buttons={buttons} open={open} />
+          <MainPage open={open} />
+        </div>
       </div>
     </div>
   );

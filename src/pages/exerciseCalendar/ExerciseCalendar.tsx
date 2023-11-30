@@ -13,12 +13,10 @@ import handleDelete from "../../utils/handleDelete";
 const ExerciseCalendar = () => {
   const url = "http://localhost:3500/exerciseDay";
   const { data } = useAxiosFetch<ExerciseItem[]>(url, []);
-  const [clickedDate, setClickedDate] = useState<string>(
+  const [clickedDate, setClickedDate] = useState(
     new Date().toLocaleDateString()
   );
-  const [clickedDay, setClickedDay] = useState<ExerciseItem | undefined>(
-    undefined
-  );
+  const [clickedDay, setClickedDay] = useState<ExerciseItem>();
   const [newExerciseDay, setNewExerciseDay] = useState<ExerciseList[]>([]);
   const onListChange = (val: ExerciseList[]) => {
     if (!clickedDay) return;
@@ -39,7 +37,7 @@ const ExerciseCalendar = () => {
   }, [data]);
 
   return (
-    <div className="px-2 pt-10 mx-auto flex flex-col">
+    <div className="px-2 pt-10 mx-auto flex flex-col text-center">
       <Calendar
         onClickDay={(value) => {
           const date = value.toLocaleDateString();
