@@ -5,14 +5,13 @@ import useAxiosFetch from "../../hooks/useAxiosFetch";
 import { ExerciseItem, ExerciseList } from "../mainPage/MainPage";
 import MapExercises from "../../components/mapExercises/MapExercises";
 import Button from "../../components/button/Button";
-import AddExerciseDay from "../addExerciseDay/AddExerciseDay";
+import AddExerciseDay from "../../components/addExerciseDay/AddExerciseDay";
 import handleChange from "../../utils/handleChange";
 import InputEdit from "../../components/inputEdit/InputEdit";
 import handleDelete from "../../utils/handleDelete";
 
 const ExerciseCalendar = () => {
-  const url = "http://localhost:3500/exerciseDay";
-  const { data } = useAxiosFetch<ExerciseItem[]>(url, []);
+  const { data } = useAxiosFetch<ExerciseItem[]>([]);
   const [clickedDate, setClickedDate] = useState(
     new Date().toLocaleDateString()
   );
@@ -37,7 +36,7 @@ const ExerciseCalendar = () => {
   }, [data]);
 
   return (
-    <div className="px-2 pt-10 mx-auto flex flex-col text-center">
+    <div className="w-full px-2 pt-10 mx-auto flex flex-col items-center text-center">
       <Calendar
         onClickDay={(value) => {
           const date = value.toLocaleDateString();
@@ -46,7 +45,7 @@ const ExerciseCalendar = () => {
         }}
         defaultValue={new Date()}
       />
-      <div className="mt-5 text-white text-lg">
+      <div className="mt-5 text-white min-w-[400px] text-lg">
         {clickedDay && (
           <React.Fragment>
             <InputEdit

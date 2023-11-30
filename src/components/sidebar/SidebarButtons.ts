@@ -12,11 +12,17 @@ const buttons: Button[] = [
   },
   {
     id: 2,
-    name: "Calendar",
-    path: "/calendar",
+    name: "Today",
+    path: "/today",
   },
   {
     id: 3,
+    name: "Calendar",
+    path: "/calendar",
+  },
+
+  {
+    id: 4,
     name: "About",
     path: "/about",
   },

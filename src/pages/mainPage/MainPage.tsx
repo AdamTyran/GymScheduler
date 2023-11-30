@@ -1,12 +1,7 @@
-import Sidebar from "../../components/sidebar/Sidebar";
-import DisplayExercise from "../../components/exerciseDisplay/DisplayExercise";
-import buttons from "../../components/sidebar/SidebarButtons";
+import Home from "../home/Home";
 import { Route, Routes } from "react-router-dom";
 import ExerciseCalendar from "../exerciseCalendar/ExerciseCalendar";
-
-interface Props {
-  open: boolean;
-}
+import Today from "../today/Today";
 
 export interface ExerciseItem {
   id: number;
@@ -21,13 +16,13 @@ export interface ExerciseList {
   reps: number | undefined;
 }
 
-const MainPage = ({ open }: Props) => {
+const MainPage = () => {
   return (
     <div className=" h-[calc(100vh-2.75rem)] w-full flex text-white overflow-y-scroll">
-      {/* <Sidebar buttons={buttons} open={open} /> */}
       <Routes>
-        <Route path="/" element={<DisplayExercise />} />
-        <Route path="/exercises" element={<DisplayExercise />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/today" element={<Today />} />
         <Route path="/calendar" element={<ExerciseCalendar />} />
       </Routes>
     </div>

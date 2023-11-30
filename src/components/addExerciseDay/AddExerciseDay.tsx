@@ -1,5 +1,5 @@
-import { ExerciseItem, ExerciseList } from "../mainPage/MainPage";
-import AddExerciseContent from "../../components/addExerciseContent/AddExerciseContent";
+import { ExerciseItem, ExerciseList } from "../../pages/mainPage/MainPage";
+import AddExerciseContent from "../addExerciseContent/AddExerciseContent";
 
 interface Props {
   setter(list: ExerciseItem): void;
@@ -15,10 +15,7 @@ const AddExerciseDay = ({
   setNewExerciseDay,
 }: Props) => {
   return (
-    <form
-      onSubmit={(e) => e.preventDefault()}
-      className="w-full max-w-md px-2 mx-auto"
-    >
+    <form onSubmit={(e) => e.preventDefault()} className="w-full px-2 mx-auto">
       <div className="flex flex-col gap-4">
         <AddExerciseContent
           setter={setter}

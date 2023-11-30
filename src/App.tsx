@@ -15,7 +15,7 @@ function App() {
         <Banner toggleSidebar={toggleSidebar} />
         <div className="flex flex-row">
           <Sidebar buttons={buttons} open={open} />
-          <MainPage open={open} />
+          <MainPage />
         </div>
       </div>
     </div>
