@@ -45,7 +45,7 @@ const ExerciseCalendar = () => {
         }}
         defaultValue={new Date()}
       />
-      <div className="mt-5 text-white min-w-[400px] text-lg">
+      <div className="mt-5 text-white min-w-[360px] text-lg">
         {clickedDay && (
           <React.Fragment>
             <InputEdit
