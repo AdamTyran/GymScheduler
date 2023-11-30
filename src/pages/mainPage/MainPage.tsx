@@ -4,19 +4,6 @@ import ExerciseCalendar from "../exerciseCalendar/ExerciseCalendar";
 import Today from "../today/Today";
 import About from "../about/About";
 
-export interface ExerciseItem {
-  id: number;
-  date: string;
-  exercises: ExerciseList[];
-}
-
-export interface ExerciseList {
-  id: number;
-  name: string;
-  sets: number | undefined;
-  reps: number | undefined;
-}
-
 const MainPage = () => {
   return (
     <div className=" h-[calc(100vh-2.75rem)] w-full flex text-white overflow-y-scroll">

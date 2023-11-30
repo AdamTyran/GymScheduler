@@ -1,14 +1,14 @@
 import React from "react";
-import InputNumberTextfield from "../inputNumberTextfield/InputNumberTextfield";
-import { ExerciseList } from "../../pages/mainPage/MainPage";
+import NumberTextfield from "../numberTextfield/NumberTextfield";
+import { Exercise } from "../../utils/interfaces";
 import { MdOutlineDeleteForever } from "react-icons/md";
 
 interface Props {
-  list: ExerciseList[];
-  onListChange(list: ExerciseList[]): void;
+  list: Exercise[];
+  onListChange(args: Exercise[]): void;
 }
 
-const MapExercises = ({ list, onListChange }: Props) => {
+const MapList = ({ list, onListChange }: Props) => {
   const onRepsChange = (value: number | undefined, index: number) => {
     const newList = [...list];
     newList[index].reps = value;
@@ -31,12 +31,12 @@ const MapExercises = ({ list, onListChange }: Props) => {
         <React.Fragment key={item.id}>
           {item.name}
           <div className="flex flex-row justify-center gap-4 mb-4">
-            <InputNumberTextfield
+            <NumberTextfield
               name="sets"
               value={item.sets}
               onChange={(val: number | undefined) => onSetsChange(val, index)}
             />
-            <InputNumberTextfield
+            <NumberTextfield
               name="reps"
               value={item.reps}
               onChange={(val: number | undefined) => onRepsChange(val, index)}
@@ -51,4 +51,4 @@ const MapExercises = ({ list, onListChange }: Props) => {
   );
 };
 
-export default MapExercises;
+export default MapList;

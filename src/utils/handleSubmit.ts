@@ -1,17 +1,16 @@
-import useAxiosFetch from "../hooks/useAxiosFetch";
-import { ExerciseItem, ExerciseList } from "../pages/mainPage/MainPage";
+import { ExerciseSet, Exercise } from "../utils/interfaces";
 import api from "./instantiateAxios";
 
 interface Props {
   date: string;
-  exerciseItem: ExerciseList[] | undefined;
-  setter(list: ExerciseItem): void;
+  exerciseItem: Exercise[] | undefined;
+  setter(args: ExerciseSet): void;
 }
 
 const handleSubmit = async ({ date, exerciseItem, setter }: Props) => {
   try {
     if (exerciseItem) {
-      const newExerciseDay: ExerciseItem = {
+      const newExerciseDay: ExerciseSet = {
         id: Math.random(),
         date: date,
         exercises: exerciseItem,

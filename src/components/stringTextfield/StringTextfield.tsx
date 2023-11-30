@@ -1,10 +1,10 @@
 interface Props {
   text: string;
   newItem: string;
-  setNewItem(arg: string): void;
+  setNewItem(args: string): void;
 }
 
-const AddExerciseTextfield = ({ text, newItem, setNewItem }: Props) => {
+const StringTextfield = ({ text, newItem, setNewItem }: Props) => {
   return (
     <div>
       <input
@@ -18,4 +18,4 @@ const AddExerciseTextfield = ({ text, newItem, setNewItem }: Props) => {
   );
 };
 
-export default AddExerciseTextfield;
+export default StringTextfield;

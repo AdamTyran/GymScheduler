@@ -1,9 +1,9 @@
-import { ExerciseItem, ExerciseList } from "../pages/mainPage/MainPage";
+import { ExerciseSet } from "../utils/interfaces";
 import api from "./instantiateAxios";
 
 interface Props {
-  day: ExerciseItem;
-  setter(list: ExerciseItem | undefined): void;
+  day: ExerciseSet;
+  setter(args?: ExerciseSet): void;
 }
 
 const handleDelete = async ({ day, setter }: Props) => {

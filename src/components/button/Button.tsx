@@ -1,6 +1,6 @@
 interface Props {
   text: string;
-  onClick(args: any): void;
+  onClick(): void;
   style: string;
 }
 

@@ -1,10 +1,9 @@
-import React from "react";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
-import { ExerciseItem } from "../mainPage/MainPage";
+import { ExerciseSet } from "../../utils/interfaces";
 import { Link } from "react-router-dom";
 
 const Today = () => {
-  const { data } = useAxiosFetch<ExerciseItem[]>([]);
+  const { data } = useAxiosFetch<ExerciseSet[]>([]);
   const todayDate = new Date().toLocaleDateString();
   const todayList = data?.find((item) => item.date === todayDate);
 

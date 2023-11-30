@@ -1,17 +1,17 @@
-import { ExerciseItem, ExerciseList } from "../../pages/mainPage/MainPage";
+import { ExerciseSet, Exercise } from "../../utils/interfaces";
 import InputAdd from "../inputAdd/InputAdd";
 import Button from "../button/Button";
-import MapExercises from "../mapExercises/MapExercises";
+import MapList from "../mapList/MapList";
 import handleSubmit from "../../utils/handleSubmit";
 
 interface Props {
-  setter(list: ExerciseItem): void;
-  exerciseList: ExerciseList[];
-  setExerciseList(list: ExerciseList[]): void;
+  setter(args: ExerciseSet): void;
+  exerciseList: Exercise[];
+  setExerciseList(args: Exercise[]): void;
   clickedDate: string;
 }
 
-const AddExerciseContent = ({
+const FormAdd = ({
   setter,
   exerciseList,
   setExerciseList,
@@ -22,7 +22,7 @@ const AddExerciseContent = ({
       <InputAdd exerciseList={exerciseList} setExerciseList={setExerciseList} />
 
       <div className="flex flex-col gap-2">
-        <MapExercises list={exerciseList} onListChange={setExerciseList} />
+        <MapList list={exerciseList} onListChange={setExerciseList} />
       </div>
       <div>
         <Button
@@ -43,4 +43,4 @@ const AddExerciseContent = ({
   );
 };
 
-export default AddExerciseContent;
+export default FormAdd;

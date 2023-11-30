@@ -1,5 +1,3 @@
-import React from "react";
-
 const About = () => {
   return (
     <div>Najlepszym opisem będzie to, że strona nie wzbudza zazdrości</div>

@@ -167,36 +167,6 @@
           "reps": 0
         }
       ]
-    },
-    {
-      "id": 0.8249125499238901,
-      "date": "30.11.2023",
-      "exercises": [
-        {
-          "id": 1,
-          "name": "dsadasd",
-          "sets": 0,
-          "reps": 0
-        },
-        {
-          "id": 2,
-          "name": "asd",
-          "sets": 0,
-          "reps": 0
-        },
-        {
-          "id": 3,
-          "name": "asdas",
-          "sets": 0,
-          "reps": 0
-        },
-        {
-          "id": 4,
-          "name": "das",
-          "sets": 0,
-          "reps": 0
-        }
-      ]
     }
   ]
 }

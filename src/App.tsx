@@ -2,7 +2,7 @@ import Banner from "./components/banner/Banner";
 import Sidebar from "./components/sidebar/Sidebar";
 import buttons from "./components/sidebar/SidebarButtons";
 import MainPage from "./pages/mainPage/MainPage";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [open, setOpen] = useState(true);

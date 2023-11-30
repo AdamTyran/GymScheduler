@@ -1,14 +1,14 @@
-import { ExerciseItem, ExerciseList } from "../../pages/mainPage/MainPage";
-import AddExerciseContent from "../addExerciseContent/AddExerciseContent";
+import { ExerciseSet, Exercise } from "../../utils/interfaces";
+import FormAdd from "../FormAdd/FormAdd";
 
 interface Props {
-  setter(list: ExerciseItem): void;
+  setter(args: ExerciseSet): void;
   clickedDate: string;
-  newExerciseDay: ExerciseList[];
-  setNewExerciseDay(list: ExerciseList[]): void;
+  newExerciseDay: Exercise[];
+  setNewExerciseDay(args: Exercise[]): void;
 }
 
-const AddExerciseDay = ({
+const Form = ({
   setter,
   clickedDate,
   newExerciseDay,
@@ -17,7 +17,7 @@ const AddExerciseDay = ({
   return (
     <form onSubmit={(e) => e.preventDefault()} className="w-full px-2 mx-auto">
       <div className="flex flex-col gap-4">
-        <AddExerciseContent
+        <FormAdd
           setter={setter}
           exerciseList={newExerciseDay}
           setExerciseList={setNewExerciseDay}
@@ -28,4 +28,4 @@ const AddExerciseDay = ({
   );
 };
 
-export default AddExerciseDay;
+export default Form;

@@ -1,10 +1,10 @@
-import { ExerciseItem, ExerciseList } from "../pages/mainPage/MainPage";
+import { ExerciseSet, Exercise } from "../utils/interfaces";
 import api from "./instantiateAxios";
 
 interface Props {
-  selectedDay: ExerciseItem;
-  updatedExerciseList: ExerciseList[];
-  setter(list: ExerciseItem | undefined): void;
+  selectedDay: ExerciseSet;
+  updatedExerciseList: Exercise[];
+  setter(args: ExerciseSet | undefined): void;
 }
 
 const handleChange = async ({
@@ -12,7 +12,7 @@ const handleChange = async ({
   updatedExerciseList,
   setter,
 }: Props) => {
-  const updatedDay: ExerciseItem = {
+  const updatedDay: ExerciseSet = {
     id: selectedDay.id,
     date: selectedDay.date,
     exercises: updatedExerciseList,

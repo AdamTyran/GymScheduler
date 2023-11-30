@@ -1,10 +1,10 @@
 interface Props {
   name: string;
   value: number | undefined;
-  onChange(arg: number | undefined): void;
+  onChange(args: number | undefined): void;
 }
 
-const InputNumberTextfield = ({ name, value, onChange }: Props) => {
+const NumberTextfield = ({ name, value, onChange }: Props) => {
   return (
     <div className="gap-4">
       <label>{name}</label>
@@ -21,4 +21,4 @@ const InputNumberTextfield = ({ name, value, onChange }: Props) => {
   );
 };
 
-export default InputNumberTextfield;
+export default NumberTextfield;

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { ExerciseList } from "../../pages/mainPage/MainPage";
-import AddExerciseTextfield from "../addExerciseTextfield/AddExerciseTextfield";
+import { useState } from "react";
+import { Exercise } from "../../utils/interfaces";
+import StringTextfield from "../stringTextfield/StringTextfield";
 import Button from "../button/Button";
 
 interface Props {
-  exerciseList: ExerciseList[];
-  setExerciseList(list: ExerciseList[]): void;
+  exerciseList: Exercise[];
+  setExerciseList(args: Exercise[]): void;
 }
 
 const InputAdd = ({ exerciseList, setExerciseList }: Props) => {
-  const [newItem, setNewItem] = useState<string>("");
+  const [newItem, setNewItem] = useState("");
   const addItem = (itemName: string) => {
     if (itemName === "") return;
     const id = exerciseList.length
@@ -22,7 +22,7 @@ const InputAdd = ({ exerciseList, setExerciseList }: Props) => {
 
   return (
     <div className="relative block text-gray-400 ">
-      <AddExerciseTextfield
+      <StringTextfield
         text="Input Exercise!"
         newItem={newItem}
         setNewItem={setNewItem}

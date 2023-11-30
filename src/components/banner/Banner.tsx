@@ -1,4 +1,3 @@
-import React from "react";
 import { TiThMenu } from "react-icons/ti";
 
 interface Props {

@@ -2,30 +2,30 @@ import React, { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "./Calendar.css";
 import useAxiosFetch from "../../hooks/useAxiosFetch";
-import { ExerciseItem, ExerciseList } from "../mainPage/MainPage";
-import MapExercises from "../../components/mapExercises/MapExercises";
+import { ExerciseSet, Exercise } from "../../utils/interfaces";
+import MapList from "../../components/mapList/MapList";
 import Button from "../../components/button/Button";
-import AddExerciseDay from "../../components/addExerciseDay/AddExerciseDay";
+import Form from "../../components/form/Form";
 import handleChange from "../../utils/handleChange";
 import InputEdit from "../../components/inputEdit/InputEdit";
 import handleDelete from "../../utils/handleDelete";
 
 const ExerciseCalendar = () => {
-  const { data } = useAxiosFetch<ExerciseItem[]>([]);
+  const { data } = useAxiosFetch<ExerciseSet[]>([]);
   const [clickedDate, setClickedDate] = useState(
     new Date().toLocaleDateString()
   );
-  const [clickedDay, setClickedDay] = useState<ExerciseItem>();
-  const [newExerciseDay, setNewExerciseDay] = useState<ExerciseList[]>([]);
-  const onListChange = (val: ExerciseList[]) => {
+  const [clickedDay, setClickedDay] = useState<ExerciseSet>();
+  const [newExerciseDay, setNewExerciseDay] = useState<Exercise[]>([]);
+  const onListChange = (val: Exercise[]) => {
     if (!clickedDay) return;
-    const newClickedDay: ExerciseItem = { ...clickedDay };
+    const newClickedDay: ExerciseSet = { ...clickedDay };
     newClickedDay.exercises = val;
     setClickedDay(newClickedDay);
   };
-  const onInputChange = (val: ExerciseList) => {
+  const onInputChange = (val: Exercise) => {
     if (!clickedDay) return;
-    const correctedDay: ExerciseItem = { ...clickedDay };
+    const correctedDay: ExerciseSet = { ...clickedDay };
     correctedDay.exercises.push(val);
     setClickedDay(correctedDay);
   };
@@ -52,10 +52,7 @@ const ExerciseCalendar = () => {
               exerciseList={clickedDay.exercises}
               onInputChange={onInputChange}
             />
-            <MapExercises
-              list={clickedDay.exercises}
-              onListChange={onListChange}
-            />
+            <MapList list={clickedDay.exercises} onListChange={onListChange} />
             <Button
               // eslint-disable-next-line react/style-prop-object
               style="bg-blue-700 hover:bg-blue-800"
@@ -79,7 +76,7 @@ const ExerciseCalendar = () => {
           </React.Fragment>
         )}
         {!clickedDay && (
-          <AddExerciseDay
+          <Form
             setter={setClickedDay}
             clickedDate={clickedDate}
             newExerciseDay={newExerciseDay}
