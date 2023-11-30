@@ -26,6 +26,8 @@ const AddExerciseContent = ({
       </div>
       <div>
         <Button
+          // eslint-disable-next-line react/style-prop-object
+          style="bg-blue-700 hover:bg-blue-800"
           text="Submit"
           onClick={() => {
             handleSubmit({
