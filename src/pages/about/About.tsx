@@ -1,7 +1,5 @@
 const About = () => {
-  return (
-    <div>Najlepszym opisem będzie to, że strona nie wzbudza zazdrości</div>
-  );
+  return <div>GymScheduler app</div>;
 };
 
 export default About;
