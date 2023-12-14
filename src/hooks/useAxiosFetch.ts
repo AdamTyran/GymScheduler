@@ -11,7 +11,7 @@ const useAxiosFetch = <T>(initValue?: T) => {
         const response = await axios.get<T>(dataUrl);
         setData(response.data);
       } catch (err: any) {
-        alert(err.message);
+        console.log(err.message);
       }
     };
     func();
