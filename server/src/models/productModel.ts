@@ -1,26 +1,28 @@
-import mongoose from "mongoose";
-
-interface ExerciseSet {
-  id: number;
-  date: string;
-  exercises: Exercise[];
-}
+import { Schema, model, Types } from "mongoose";
 
 interface Exercise {
-  id: number;
+  _id: Types.ObjectId;
   name: string;
   sets?: number;
   reps?: number;
 }
 
-const productSchema = new mongoose.Schema<ExerciseSet>({
-  date: { type: String, required: true },
-  exercises: {
-    id: { type: Number, required: true },
-    name: { type: String, required: true },
-    sets: { type: Number, required: true },
-    reps: { type: Number, required: true },
-  },
+interface ExerciseSet {
+  _id: Types.ObjectId;
+  date: string;
+  exercises: Types.Array<Exercise>;
+}
+
+const setSchema = new Schema<Exercise>({
+  name: { type: String, required: true },
+  sets: { type: Number, required: true },
+  reps: { type: Number, required: true },
 });
 
-export const exerciseModel = mongoose.model("Exercises", productSchema);
+//TODO change exercises to be array
+const exerciseSchema = new Schema<ExerciseSet>({
+  date: { type: String, required: true },
+  exercises: { type: [setSchema], required: true },
+});
+
+export const exerciseModel = model("Exercises", exerciseSchema);
