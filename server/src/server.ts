@@ -30,26 +30,32 @@ app.get("/exerciseDay", async (req, res) => {
   }
 });
 
-app.put("/exerciseDay", async (req, res) => {
+app.put("/exerciseDay/:id", async (req, res) => {
   try {
-    const id = req.params;
-    const exercise = await exerciseModel.findByIdAndUpdate({ id, ...req.body });
+    const { id } = req.params;
+    const exercise = await exerciseModel.findByIdAndUpdate(id, req.body);
     if (!exercise) {
       return res
         .status(404)
         .json({ message: `cannot find exercise day with id ${id}` });
     }
-    res.status(200).json(exercise);
+    const updatedExercise = await exerciseModel.findById(id);
+    res.status(200).json(updatedExercise);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error });
   }
 });
 
-app.delete("/exerciseDay", async (req, res) => {
+app.delete("/exerciseDay/:id", async (req, res) => {
   try {
-    const id = req.params;
-    const exercise = await exerciseModel.findByIdAndDelete({ id });
+    const { id } = req.params;
+    const exercise = await exerciseModel.findByIdAndDelete(id);
+    if (!exercise) {
+      return res
+        .status(404)
+        .json({ message: `cannot find exercise day with id ${id}` });
+    }
     res.status(200).json(exercise);
   } catch (error) {
     console.log(error);
