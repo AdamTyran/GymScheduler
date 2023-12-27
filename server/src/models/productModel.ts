@@ -19,7 +19,6 @@ const setSchema = new Schema<Exercise>({
   reps: { type: Number, required: true },
 });
 
-//TODO change exercises to be array
 const exerciseSchema = new Schema<ExerciseSet>({
   date: { type: String, required: true },
   exercises: { type: [setSchema], required: true },
