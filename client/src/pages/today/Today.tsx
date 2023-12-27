@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 const Today = () => {
   const { data } = useAxiosFetch<ExerciseSet[]>([]);
-  const todayDate = new Date().toLocaleDateString();
+  const todayDate = new Date();
   const todayList = data?.find((item) => item.date === todayDate);
 
   return (
     <div className="w-full  text-center  mt-5 gap-3">
       {todayList &&
         todayList.exercises.map((item) => (
-          <div className="flex flex-col" key={item.id}>
+          <div className="flex flex-col" key={item._id}>
             <label className="text-xl lg:text-3xl">{item.name}</label>
             <div className="flex flex-row justify-center gap-2">
               <div className="text-2xl">

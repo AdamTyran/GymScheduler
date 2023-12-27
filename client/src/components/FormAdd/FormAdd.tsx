@@ -8,7 +8,7 @@ interface Props {
   setter(args: ExerciseSet): void;
   exerciseList: Exercise[];
   setExerciseList(args: Exercise[]): void;
-  clickedDate: string;
+  clickedDate: Date;
 }
 
 const FormAdd = ({

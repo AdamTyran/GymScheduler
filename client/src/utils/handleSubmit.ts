@@ -2,7 +2,7 @@ import { ExerciseSet, Exercise } from "../utils/interfaces";
 import api from "./instantiateAxios";
 
 interface Props {
-  date: string;
+  date: Date;
   exerciseItem: Exercise[] | undefined;
   setter(args: ExerciseSet): void;
 }
@@ -11,7 +11,6 @@ const handleSubmit = async ({ date, exerciseItem, setter }: Props) => {
   try {
     if (exerciseItem) {
       const newExerciseDay: ExerciseSet = {
-        id: Math.random(),
         date: date,
         exercises: exerciseItem,
       };

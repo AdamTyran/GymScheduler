@@ -2,6 +2,7 @@ import React from "react";
 import NumberTextfield from "../numberTextfield/NumberTextfield";
 import { Exercise } from "../../utils/interfaces";
 import { MdOutlineDeleteForever } from "react-icons/md";
+import { Types } from "mongoose";
 
 interface Props {
   list: Exercise[];
@@ -19,16 +20,16 @@ const MapList = ({ list, onListChange }: Props) => {
     newList[index].sets = value;
     onListChange(newList);
   };
-  const deleteEntry = (id: number) => {
+  const deleteEntry = (id: string) => {
     const listCopy = [...list];
-    const newList = listCopy.filter((item) => item.id !== id);
+    const newList = listCopy.filter((item) => item._id !== id);
     onListChange(newList);
   };
 
   return (
     <div>
       {list.map((item, index) => (
-        <React.Fragment key={item.id}>
+        <React.Fragment key={item._id}>
           {item.name}
           <div className="flex flex-row justify-center gap-4 mb-4">
             <NumberTextfield
@@ -41,7 +42,7 @@ const MapList = ({ list, onListChange }: Props) => {
               value={item.reps}
               onChange={(val: number | undefined) => onRepsChange(val, index)}
             />
-            <button onClick={() => deleteEntry(item.id)}>
+            <button onClick={() => deleteEntry(item._id)}>
               <MdOutlineDeleteForever className="h-8 w-8" />
             </button>
           </div>

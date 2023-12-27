@@ -13,12 +13,12 @@ const handleChange = async ({
   setter,
 }: Props) => {
   const updatedDay: ExerciseSet = {
-    id: selectedDay.id,
+    _id: selectedDay._id,
     date: selectedDay.date,
     exercises: updatedExerciseList,
   };
   try {
-    await api.put(`/exerciseDay/${selectedDay.id}`, updatedDay);
+    await api.put(`/exerciseDay/${selectedDay._id}`, updatedDay);
     setter(updatedDay);
   } catch (err) {
     console.log(`Error: ${err}`);

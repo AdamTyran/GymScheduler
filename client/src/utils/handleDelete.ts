@@ -8,7 +8,7 @@ interface Props {
 
 const handleDelete = async ({ day, setter }: Props) => {
   try {
-    await api.delete(`/exerciseDay/${day.id}`);
+    await api.delete(`/exerciseDay/${day._id}`);
     setter(undefined);
   } catch (err) {
     console.log(`Error: ${err}`);
