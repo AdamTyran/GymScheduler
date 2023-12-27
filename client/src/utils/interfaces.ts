@@ -1,5 +1,3 @@
-import { Types } from "mongoose";
-
 export interface ExerciseSet {
   _id?: string;
   date: Date;
