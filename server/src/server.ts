@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import { exerciseModel } from "./models/productModel";
 
@@ -8,7 +9,12 @@ dotenv.config();
 const app = express();
 const MONGO_URI = `mongodb+srv://root:${process.env.DBPASS}@gymscheduler.c8rayg3.mongodb.net/`;
 
-app.use(express.json());
+app.use(
+  express.json(),
+  cors({
+    origin: process.env.FRONTEND_ADDRESS,
+  })
+);
 
 app.post("/exerciseDay", async (req, res) => {
   try {
