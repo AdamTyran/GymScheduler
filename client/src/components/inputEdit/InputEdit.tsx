@@ -13,9 +13,14 @@ const InputEdit = ({ exerciseList, onInputChange }: Props) => {
   const addItem = (itemName: string) => {
     if (itemName === "") return;
     const id = exerciseList.length
-      ? exerciseList[exerciseList.length - 1].id + 1
+      ? exerciseList[exerciseList.length - 1]._id + 1
       : 1;
-    const newExercise = { id: id, name: itemName, sets: 0, reps: 0 };
+    const newExercise = {
+      _id: id.toString(),
+      name: itemName,
+      sets: 0,
+      reps: 0,
+    };
     onInputChange(newExercise);
     setNewItem("");
   };

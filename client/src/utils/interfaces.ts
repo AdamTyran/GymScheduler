@@ -1,11 +1,13 @@
+import { Types } from "mongoose";
+
 export interface ExerciseSet {
-  id: number;
-  date: string;
+  _id?: string;
+  date: Date;
   exercises: Exercise[];
 }
 
 export interface Exercise {
-  id: number;
+  _id: string;
   name: string;
   sets?: number;
   reps?: number;
