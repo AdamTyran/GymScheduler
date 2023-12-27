@@ -47,11 +47,9 @@ const ExerciseCalendar = () => {
       <Calendar
         onClickDay={(value) => {
           const date = new Date(value);
-          console.log(`value = ${date}`);
           setClickedDay(
             data?.find((item) => {
               const itemDate: Date = new Date(item.date);
-              console.log(data);
               return (
                 itemDate.getDate() === date.getDate() &&
                 itemDate.getMonth() === date.getMonth() &&

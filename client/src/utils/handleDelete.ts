@@ -10,8 +10,8 @@ const handleDelete = async ({ day, setter }: Props) => {
   try {
     await api.delete(`/exerciseDay/${day._id}`);
     setter(undefined);
-  } catch (err) {
-    console.log(`Error: ${err}`);
+  } catch (err: any) {
+    console.log(err.message);
   }
 };
 
