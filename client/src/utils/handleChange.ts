@@ -20,8 +20,8 @@ const handleChange = async ({
   try {
     await api.put(`/exerciseDay/${selectedDay._id}`, updatedDay);
     setter(updatedDay);
-  } catch (err) {
-    console.log(`Error: ${err}`);
+  } catch (err: any) {
+    console.log(err.message);
   }
 };
 
