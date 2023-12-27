@@ -3,7 +3,7 @@ import FormAdd from "../FormAdd/FormAdd";
 
 interface Props {
   setter(args: ExerciseSet): void;
-  clickedDate: string;
+  clickedDate: Date;
   newExerciseDay: Exercise[];
   setNewExerciseDay(args: Exercise[]): void;
 }

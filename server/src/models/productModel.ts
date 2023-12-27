@@ -9,7 +9,7 @@ interface Exercise {
 
 interface ExerciseSet {
   _id: Types.ObjectId;
-  date: string;
+  date: Date;
   exercises: Types.Array<Exercise>;
 }
 
@@ -20,7 +20,7 @@ const setSchema = new Schema<Exercise>({
 });
 
 const exerciseSchema = new Schema<ExerciseSet>({
-  date: { type: String, required: true },
+  date: { type: Date, required: true },
   exercises: { type: [setSchema], required: true },
 });
 

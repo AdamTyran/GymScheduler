@@ -12,9 +12,7 @@ import handleDelete from "../../utils/handleDelete";
 
 const ExerciseCalendar = () => {
   const { data } = useAxiosFetch<ExerciseSet[]>([]);
-  const [clickedDate, setClickedDate] = useState(
-    new Date().toLocaleDateString()
-  );
+  const [clickedDate, setClickedDate] = useState(new Date());
   const [clickedDay, setClickedDay] = useState<ExerciseSet>();
   const [newExerciseDay, setNewExerciseDay] = useState<Exercise[]>([]);
   const onListChange = (val: Exercise[]) => {
@@ -31,7 +29,16 @@ const ExerciseCalendar = () => {
   };
 
   useEffect(() => {
-    setClickedDay(data?.find((item) => item.date === clickedDate));
+    setClickedDay(
+      data?.find((item) => {
+        const itemDate: Date = new Date(item.date);
+        return (
+          itemDate.getDate() === clickedDate.getDate() &&
+          itemDate.getMonth() === clickedDate.getMonth() &&
+          itemDate.getFullYear() === clickedDate.getFullYear()
+        );
+      })
+    );
     // eslint-disable-next-line
   }, [data]);
 
@@ -39,9 +46,20 @@ const ExerciseCalendar = () => {
     <div className="w-full px-2 pt-10 mx-auto flex flex-col items-center text-center">
       <Calendar
         onClickDay={(value) => {
-          const date = value.toLocaleDateString();
-          setClickedDay(data?.find((item) => item.date === date));
-          setClickedDate(date);
+          const date = new Date(value);
+          console.log(`value = ${date}`);
+          setClickedDay(
+            data?.find((item) => {
+              const itemDate: Date = new Date(item.date);
+              console.log(data);
+              return (
+                itemDate.getDate() === date.getDate() &&
+                itemDate.getMonth() === date.getMonth() &&
+                itemDate.getFullYear() === date.getFullYear()
+              );
+            })
+          );
+          setClickedDate(value);
         }}
         defaultValue={new Date()}
       />
