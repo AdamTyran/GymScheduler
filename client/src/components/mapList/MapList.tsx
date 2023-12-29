@@ -21,11 +21,6 @@ const MapList = ({ list, onListChange }: Props) => {
   };
   const deleteEntry = (index: number, id?: string) => {
     const listCopy = [...list];
-
-    console.log(index);
-    console.log(listCopy);
-
-    // const newList = listCopy.splice(index, 1);
     const newList = listCopy.filter((item, i) => {
       if (id) {
         return item._id !== id;
