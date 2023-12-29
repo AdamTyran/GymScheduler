@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Exercise } from "../../utils/interfaces";
 import StringTextfield from "../stringTextfield/StringTextfield";
 import Button from "../button/Button";
-import { Types } from "mongoose";
 
 interface Props {
   exerciseList: Exercise[];
@@ -13,9 +12,7 @@ const InputAdd = ({ exerciseList, setExerciseList }: Props) => {
   const [newItem, setNewItem] = useState("");
   const addItem = (itemName: string) => {
     if (itemName === "") return;
-    const id = new Types.ObjectId();
     const newExercise = {
-      _id: id.toString(),
       name: itemName,
       sets: 0,
       reps: 0,

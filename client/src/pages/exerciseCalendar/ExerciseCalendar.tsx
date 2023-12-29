@@ -28,15 +28,19 @@ const ExerciseCalendar = () => {
     setClickedDay(correctedDay);
   };
 
+  const findExerciseSetOnDate = (item: ExerciseSet, date: Date): boolean => {
+    const itemDate: Date = new Date(item.date);
+    return (
+      itemDate.getDate() === date.getDate() &&
+      itemDate.getMonth() === date.getMonth() &&
+      itemDate.getFullYear() === date.getFullYear()
+    );
+  };
+
   useEffect(() => {
     setClickedDay(
       data?.find((item) => {
-        const itemDate: Date = new Date(item.date);
-        return (
-          itemDate.getDate() === clickedDate.getDate() &&
-          itemDate.getMonth() === clickedDate.getMonth() &&
-          itemDate.getFullYear() === clickedDate.getFullYear()
-        );
+        return findExerciseSetOnDate(item, clickedDate);
       })
     );
     // eslint-disable-next-line
@@ -49,12 +53,7 @@ const ExerciseCalendar = () => {
           const date = new Date(value);
           setClickedDay(
             data?.find((item) => {
-              const itemDate: Date = new Date(item.date);
-              return (
-                itemDate.getDate() === date.getDate() &&
-                itemDate.getMonth() === date.getMonth() &&
-                itemDate.getFullYear() === date.getFullYear()
-              );
+              return findExerciseSetOnDate(item, date);
             })
           );
           setClickedDate(value);

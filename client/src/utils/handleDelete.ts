@@ -11,7 +11,7 @@ const handleDelete = async ({ day, setter }: Props) => {
     await api.delete(`/exerciseDay/${day._id}`);
     setter(undefined);
   } catch (err: any) {
-    console.log(err.message);
+    console.error(err.message);
   }
 };
 

@@ -21,7 +21,7 @@ const handleChange = async ({
     await api.put(`/exerciseDay/${selectedDay._id}`, updatedDay);
     setter(updatedDay);
   } catch (err: any) {
-    console.log(err.message);
+    console.error(err.message);
   }
 };
 
