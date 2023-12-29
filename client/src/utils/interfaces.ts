@@ -5,7 +5,7 @@ export interface ExerciseSet {
 }
 
 export interface Exercise {
-  _id: string;
+  _id?: string;
   name: string;
   sets?: number;
   reps?: number;

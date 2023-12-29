@@ -2,7 +2,6 @@ import React from "react";
 import NumberTextfield from "../numberTextfield/NumberTextfield";
 import { Exercise } from "../../utils/interfaces";
 import { MdOutlineDeleteForever } from "react-icons/md";
-import { Types } from "mongoose";
 
 interface Props {
   list: Exercise[];
@@ -20,7 +19,7 @@ const MapList = ({ list, onListChange }: Props) => {
     newList[index].sets = value;
     onListChange(newList);
   };
-  const deleteEntry = (id: string) => {
+  const deleteEntry = (id?: string) => {
     const listCopy = [...list];
     const newList = listCopy.filter((item) => item._id !== id);
     onListChange(newList);

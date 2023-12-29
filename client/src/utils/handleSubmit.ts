@@ -20,7 +20,7 @@ const handleSubmit = async ({ date, exerciseItem, setter }: Props) => {
       alert("Exercises list cannot be empty");
     }
   } catch (err: any) {
-    console.log(err.message);
+    console.error(err.message);
   }
 };
 
