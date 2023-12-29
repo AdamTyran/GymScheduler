@@ -7,6 +7,6 @@ export interface ExerciseSet {
 export interface Exercise {
   _id?: string;
   name: string;
-  sets?: number;
-  reps?: number;
+  sets: number;
+  reps: number;
 }
