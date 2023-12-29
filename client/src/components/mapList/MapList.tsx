@@ -19,16 +19,27 @@ const MapList = ({ list, onListChange }: Props) => {
     newList[index].sets = value;
     onListChange(newList);
   };
-  const deleteEntry = (id?: string) => {
+  const deleteEntry = (index: number, id?: string) => {
     const listCopy = [...list];
-    const newList = listCopy.filter((item) => item._id !== id);
+
+    console.log(index);
+    console.log(listCopy);
+
+    // const newList = listCopy.splice(index, 1);
+    const newList = listCopy.filter((item, i) => {
+      if (id) {
+        return item._id !== id;
+      }
+      return index !== i;
+    });
+    console.log(newList);
     onListChange(newList);
   };
 
   return (
     <div>
       {list.map((item, index) => (
-        <React.Fragment key={index}>
+        <React.Fragment key={item?._id ?? index}>
           {item.name}
           <div className="flex flex-row justify-center gap-4 mb-4">
             <NumberTextfield
@@ -41,7 +52,7 @@ const MapList = ({ list, onListChange }: Props) => {
               value={item.reps}
               onChange={(val: number) => onRepsChange(val, index)}
             />
-            <button onClick={() => deleteEntry(item._id)}>
+            <button onClick={() => deleteEntry(index, item._id)}>
               <MdOutlineDeleteForever className="h-8 w-8" />
             </button>
           </div>
