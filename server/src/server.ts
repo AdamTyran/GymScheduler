@@ -7,7 +7,8 @@ import { exerciseModel } from "./models/productModel";
 
 dotenv.config();
 const app = express();
-const MONGO_URI = `mongodb+srv://root:${process.env.DBPASS}@gymscheduler.c8rayg3.mongodb.net/`;
+const MONGO_URI = `${process.env.DB_CONNECTION}`;
+const PORT = 3500;
 
 app.use(
   express.json(),
@@ -45,8 +46,7 @@ app.put("/exerciseDay/:id", async (req, res) => {
         .status(404)
         .json({ message: `cannot find exercise day with id ${id}` });
     }
-    const updatedExercise = await exerciseModel.findById(id);
-    res.status(200).json(updatedExercise);
+    res.status(200).json(exercise);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error });
@@ -62,7 +62,7 @@ app.delete("/exerciseDay/:id", async (req, res) => {
         .status(404)
         .json({ message: `cannot find exercise day with id ${id}` });
     }
-    res.status(200).json(exercise);
+    res.status(204).json(exercise);
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error });
@@ -72,8 +72,13 @@ app.delete("/exerciseDay/:id", async (req, res) => {
 mongoose
   .connect(MONGO_URI)
   .then(() => {
-    app.listen(3500, () => {
-      console.log("connected to database and server");
+    app.listen(PORT, () => {
+      console.log(
+        `Successfully connected to database. Server is listening on port ${PORT} `
+      );
     });
   })
-  .catch(() => console.log("error"));
+  .catch((err: any) => {
+    console.error(`Error connecting to the MongoDB database ${MONGO_URI}}`);
+    console.log(err.message);
+  });
