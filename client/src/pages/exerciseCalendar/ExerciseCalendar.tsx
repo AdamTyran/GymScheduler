@@ -13,19 +13,20 @@ import handleDelete from "../../utils/handleDelete";
 const ExerciseCalendar = () => {
   const { data } = useAxiosFetch<ExerciseSet[]>([]);
   const [clickedDate, setClickedDate] = useState(new Date());
-  const [clickedDay, setClickedDay] = useState<ExerciseSet>();
-  const [newExerciseDay, setNewExerciseDay] = useState<Exercise[]>([]);
+  const [clickedExerciseDaySet, setClickedExerciseDaySet] =
+    useState<ExerciseSet>();
+  const [newExerciseDaySet, setNewExerciseDaySet] = useState<Exercise[]>([]);
   const onListChange = (val: Exercise[]) => {
-    if (!clickedDay) return;
-    const newClickedDay: ExerciseSet = { ...clickedDay };
-    newClickedDay.exercises = val;
-    setClickedDay(newClickedDay);
+    if (!clickedExerciseDaySet) return;
+    const newClickedDaySet: ExerciseSet = { ...clickedExerciseDaySet };
+    newClickedDaySet.exercises = val;
+    setClickedExerciseDaySet(newClickedDaySet);
   };
   const onInputChange = (val: Exercise) => {
-    if (!clickedDay) return;
-    const correctedDay: ExerciseSet = { ...clickedDay };
-    correctedDay.exercises.push(val);
-    setClickedDay(correctedDay);
+    if (!clickedExerciseDaySet) return;
+    const correctedExerciseDaySet: ExerciseSet = { ...clickedExerciseDaySet };
+    correctedExerciseDaySet.exercises.push(val);
+    setClickedExerciseDaySet(correctedExerciseDaySet);
   };
 
   const findExerciseSetOnDate = (item: ExerciseSet, date: Date): boolean => {
@@ -38,7 +39,7 @@ const ExerciseCalendar = () => {
   };
 
   useEffect(() => {
-    setClickedDay(
+    setClickedExerciseDaySet(
       data?.find((item) => {
         return findExerciseSetOnDate(item, clickedDate);
       })
@@ -51,7 +52,7 @@ const ExerciseCalendar = () => {
       <Calendar
         onClickDay={(value) => {
           const date = new Date(value);
-          setClickedDay(
+          setClickedExerciseDaySet(
             data?.find((item) => {
               return findExerciseSetOnDate(item, date);
             })
@@ -61,21 +62,24 @@ const ExerciseCalendar = () => {
         defaultValue={new Date()}
       />
       <div className="mt-5 text-white min-w-[360px] text-lg">
-        {clickedDay && (
+        {clickedExerciseDaySet && (
           <React.Fragment>
             <InputEdit
-              exerciseList={clickedDay.exercises}
+              exerciseList={clickedExerciseDaySet.exercises}
               onInputChange={onInputChange}
             />
-            <MapList list={clickedDay.exercises} onListChange={onListChange} />
+            <MapList
+              list={clickedExerciseDaySet.exercises}
+              onListChange={onListChange}
+            />
             <Button
               className="bg-blue-700 hover:bg-blue-800"
               text="Update Day"
               onClick={() =>
                 handleChange({
-                  selectedDay: clickedDay,
-                  updatedExerciseList: clickedDay?.exercises,
-                  setter: setClickedDay,
+                  selectedDay: clickedExerciseDaySet,
+                  updatedExerciseList: clickedExerciseDaySet?.exercises,
+                  setter: setClickedExerciseDaySet,
                 })
               }
             />
@@ -83,17 +87,20 @@ const ExerciseCalendar = () => {
               className="bg-red-700 hover:bg-red-800"
               text="Delete day"
               onClick={() =>
-                handleDelete({ day: clickedDay, setter: setClickedDay })
+                handleDelete({
+                  day: clickedExerciseDaySet,
+                  setter: setClickedExerciseDaySet,
+                })
               }
             />
           </React.Fragment>
         )}
-        {!clickedDay && (
+        {!clickedExerciseDaySet && (
           <Form
-            setter={setClickedDay}
+            setter={setClickedExerciseDaySet}
             clickedDate={clickedDate}
-            newExerciseDay={newExerciseDay}
-            setNewExerciseDay={setNewExerciseDay}
+            newExerciseDaySet={newExerciseDaySet}
+            setNewExerciseDaySet={setNewExerciseDaySet}
           />
         )}
       </div>
