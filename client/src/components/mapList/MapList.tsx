@@ -9,12 +9,12 @@ interface Props {
 }
 
 const MapList = ({ list, onListChange }: Props) => {
-  const onRepsChange = (value: number | undefined, index: number) => {
+  const onRepsChange = (value: number, index: number) => {
     const newList = [...list];
     newList[index].reps = value;
     onListChange(newList);
   };
-  const onSetsChange = (value: number | undefined, index: number) => {
+  const onSetsChange = (value: number, index: number) => {
     const newList = [...list];
     newList[index].sets = value;
     onListChange(newList);
@@ -34,12 +34,12 @@ const MapList = ({ list, onListChange }: Props) => {
             <NumberTextfield
               name="sets"
               value={item.sets}
-              onChange={(val: number | undefined) => onSetsChange(val, index)}
+              onChange={(val: number) => onSetsChange(val, index)}
             />
             <NumberTextfield
               name="reps"
               value={item.reps}
-              onChange={(val: number | undefined) => onRepsChange(val, index)}
+              onChange={(val: number) => onRepsChange(val, index)}
             />
             <button onClick={() => deleteEntry(item._id)}>
               <MdOutlineDeleteForever className="h-8 w-8" />
