@@ -28,7 +28,7 @@ const MapList = ({ list, onListChange }: Props) => {
   return (
     <div>
       {list.map((item, index) => (
-        <React.Fragment key={item.name + new Date().getTime()}>
+        <React.Fragment key={index}>
           {item.name}
           <div className="flex flex-row justify-center gap-4 mb-4">
             <NumberTextfield
