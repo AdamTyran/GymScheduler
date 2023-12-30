@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import { exerciseModel } from "./models/productModel";
+import { exerciseModel, validateExerciseSchema } from "./models/productModel";
 
 dotenv.config();
 const app = express();
@@ -19,6 +19,11 @@ app.use(
 
 app.post("/exerciseDay", async (req, res) => {
   try {
+    try {
+      await validateExerciseSchema.validate(req.body);
+    } catch (error) {
+      res.status(400).json({ message: error });
+    }
     const exercise = await exerciseModel.create(req.body);
     res.status(200).json(exercise);
   } catch (error) {
@@ -39,6 +44,11 @@ app.get("/exerciseDay", async (req, res) => {
 
 app.put("/exerciseDay/:id", async (req, res) => {
   try {
+    try {
+      await validateExerciseSchema.validate(req.body);
+    } catch (error) {
+      res.status(400).json({ message: error });
+    }
     const { id } = req.params;
     const exercise = await exerciseModel.findByIdAndUpdate(id, req.body);
     if (!exercise) {
