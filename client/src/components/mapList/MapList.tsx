@@ -27,7 +27,6 @@ const MapList = ({ list, onListChange }: Props) => {
       }
       return index !== i;
     });
-    console.log(newList);
     onListChange(newList);
   };
 
