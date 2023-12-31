@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const useAxiosFetch = <T>(initValue?: T) => {
-  const dataUrl = "http://localhost:3500/exerciseDay";
+  const dataUrl = `${process.env.REACT_APP_FETCH}`;
   const [data, setData] = useState<T | undefined>(initValue);
 
   useEffect(() => {
