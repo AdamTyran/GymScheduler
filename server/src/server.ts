@@ -79,7 +79,7 @@ app.delete("/exerciseDay/:id", async (req, res) => {
     res.status(500).json({ message: error });
   }
 });
-
+console.log(process.env.FRONTEND_ADDRESS);
 mongoose
   .connect(MONGO_URI)
   .then(() => {
