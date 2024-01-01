@@ -13,7 +13,8 @@ const PORT = 3500;
 app.use(
   express.json(),
   cors({
-    origin: process.env.FRONTEND_ADDRESS,
+    // origin: process.env.FRONTEND_ADDRESS,
+    origin: "*",
   })
 );
 
