@@ -13,8 +13,7 @@ const PORT = 3500;
 app.use(
   express.json(),
   cors({
-    // origin: process.env.FRONTEND_ADDRESS,
-    origin: "*",
+    origin: process.env.FRONTEND_ADDRESS,
   })
 );
 
@@ -79,7 +78,7 @@ app.delete("/exerciseDay/:id", async (req, res) => {
     res.status(500).json({ message: error });
   }
 });
-console.log(process.env.FRONTEND_ADDRESS);
+
 mongoose
   .connect(MONGO_URI)
   .then(() => {
