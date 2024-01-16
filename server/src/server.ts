@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import { exerciseModel, validateExerciseSchema } from "./models/productModel";
+import { exerciseModel, validateExerciseSchema } from "./models/exerciseModel";
 
 dotenv.config();
 const app = express();
